@@ -26,6 +26,6 @@ jobs:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}  # GitHub 私人令牌
+          github_token: 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 # GitHub 私人令牌
           publish_dir: docs/.vitepress/dist # 部署的文件目录
           # cname: example.com # if wanna deploy to custom domain
