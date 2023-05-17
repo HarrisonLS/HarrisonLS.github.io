@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: "My github blog"
+  name: "五目十行"
   text: "A VitePress Site"
   tagline: My great project tagline
   actions:
