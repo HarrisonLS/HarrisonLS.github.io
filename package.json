@@ -1,10 +1,16 @@
 {
   "dependencies": {
-    "vitepress": "1.0.0-alpha.75"
+    "react": "^18.2.0",
+    "vitepress": "1.0.0-alpha.75",
+    "vue": "^3.3.4"
   },
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.1",
+    "@umijs/plugin-sass": "^1.1.1"
   }
 }

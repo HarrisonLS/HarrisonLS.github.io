@@ -1,0 +1,73 @@
+/***** vitepress 样式优化 ******/
+
+/* 同一行上的链接有间距才行 */
+.vp-doc p a + a {
+  margin-left: 12px;
+}
+
+/* 大屏大一点 */
+@media (min-width: 1440px) {
+  .VPDoc.has-aside .content-container.content-container {
+    max-width: 100%;
+  }
+}
+
+/* nav 换行问题（6 个还是有点小多，后面看看怎么优化） */
+@media (max-width: 1080px) {
+  :root {
+    --vp-sidebar-width: 260px;
+  }
+  .VPNav {
+    // 借鉴 https://cn.vuejs.org 的处理
+    .DocSearch-Button-Placeholder {
+      display: none;
+    }
+    .VPNavBarMenuLink,
+    .VPNavBarMenuGroup .button {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+}
+@media (max-width: 992px) {
+  .VPNav {
+    .VPNavBar {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    .VPNavBarMenuLink,
+    .VPNavBarMenuGroup .button {
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+  }
+}
+@media (max-width: 800px) {
+  .VPNav {
+    .VPNavBarSearch {
+      padding-left: 16px;
+    }
+    .VPNavBarMenuLink,
+    .VPNavBarMenuGroup .button {
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+  }
+}
+
+/* menu title 会换行 */
+.VPMenuGroup .title {
+  white-space: nowrap;
+}
+
+/* 版权信息 */
+.copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 代码块标题，跟 h6 一样 */
+.custom-block .custom-block-title {
+  font-size: 16px;
+}
