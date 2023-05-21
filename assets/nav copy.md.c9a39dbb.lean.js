@@ -1,0 +1,1 @@
+import{_ as s,o as a,c as n,O as l}from"./chunks/framework.62a149d4.js";const d=JSON.parse('{"title":"前端导航","description":"","frontmatter":{},"headers":[],"relativePath":"nav copy.md","filePath":"nav copy.md"}'),t={name:"nav copy.md"},o=l("",2),e=[o];function p(c,r,i,y,D,_){return a(),n("div",null,e)}const C=s(t,[["render",p]]);export{d as __pageData,C as default};
