@@ -1,5 +1,6 @@
 import { defineConfig } from "vitepress";
 
+import { head, nav, sidebar, algolia } from "./configs";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "五目十行",
@@ -8,20 +9,52 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "首页", link: "/" },
-      { text: "导航", link: "/nav" },
-      { text: "前端", link: "/src/frontEnd/index.md" },
+      { text: "导航", link: "/nav", activeMatch: "^/nav" },
+      {
+        text: "前端",
+        items: [
+          { text: "JavaScript 基础知识", link: "/frontEnd/javascript/type" },
+          { text: "CSS 理论知识", link: "/frontEnd/css/index" },
+          { text: "ES6 常用知识", link: "/frontEnd/es6/" },
+          { text: "TypeScript 基础知识", link: "/frontEnd/typescript/base" },
+          { text: "浏览器相关知识", link: "/frontEnd/browser/" },
+        ],
+        activeMatch: "^/frontEnd",
+      },
+      {
+        text: "框架使用",
+        items: [
+          { text: "React", link: "/framework/react" },
+          { text: "Vue", link: "/framework/react" },
+          { text: "NextJS", link: "/framework/react" },
+          { text: "Taro", link: "/framework/react" }
+        ],
+      },
       { text: "算法", link: "/src/algorithm/index.md" },
     ],
-
-    // sidebar: [
-    //   {
-    //     text: 'Examples',
-    //     items: [
-    //       { text: 'Markdown Examples', link: '/markdown-examples' },
-    //       { text: 'Runtime API Examples', link: '/api-examples' }
-    //     ]
-    //   }
-    // ],
+    sidebar: {
+      "/frontEnd/": [
+        {
+          text: "JavaScript 基础知识",
+          collapsed: false,
+          items: [
+            { text: "数据类型及方法", link: "/frontEnd/javascript/type" },
+            // { text: "引用类型的拷贝", link: "/frontEnd/javascript/clone" },
+            // { text: "类型转换", link: "/frontEnd/javascript/conversions" },
+            // { text: "原型和原型链", link: "/frontEnd/javascript/prototype" },
+            // { text: "继承", link: "/frontEnd/javascript/inherit" },
+          ],
+        },
+        {
+          text: "HTML / CSS",
+          collapsed: false,
+          items: [
+            { text: "HTML 理论知识点", link: "/frontEnd/html/" },
+            { text: "CSS 理论知识点", link: "/frontEnd/css/" },
+          ],
+        },
+      ],
+    },
 
     socialLinks: [
       { icon: "github", link: "https://github.com/vuejs/vitepress" },

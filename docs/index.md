@@ -11,8 +11,8 @@ hero:
     alt: logo
   actions:
     - theme: brand
-      text: 更多内容
-      link: /markdown-examples
+      text: 前端导航
+      link: /nav
     - theme: alt
       text: 我的github主页
       link: https://github.com/HarrisonLS

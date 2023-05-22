@@ -1,22 +1,21 @@
-export interface NavLinkProps {
-  id: string | number | symbol | undefined;
+export interface NavLink {
   /** 站点图标 */
-  icon?: string | { svg: string };
+  icon?: string | { svg: string }
   badge?:
     | string
     | {
-        text?: string;
-        type?: "info" | "tip" | "warning" | "danger";
-      };
+        text?: string
+        type?: 'info' | 'tip' | 'warning' | 'danger'
+      }
   /** 站点名称 */
-  title: string;
+  title: string
   /** 站点名称 */
-  desc?: string;
+  desc?: string
   /** 站点链接 */
-  link: string;
+  link: string
 }
 
 export interface NavData {
-  title: string;
-  items: NavLinkProps[];
+  title: string
+  items: NavLink[]
 }
