@@ -27,10 +27,16 @@ export default defineConfig({
           { text: "React", link: "/framework/react" },
           { text: "Vue", link: "/framework/react" },
           { text: "NextJS", link: "/framework/react" },
-          { text: "Taro", link: "/framework/react" }
+          { text: "Taro", link: "/framework/react" },
         ],
       },
-      { text: "算法", link: "/src/algorithm/index.md" },
+      {
+        text: "算法",
+        items: [
+          { text: "LeetCode记录", link: "/algorithm/leetcode/all" },
+          { text: "huawei", link: "/algorithm/huawei/niuke" },
+        ],
+      },
     ],
     sidebar: {
       "/frontEnd/": [
@@ -51,6 +57,17 @@ export default defineConfig({
           items: [
             { text: "HTML 理论知识点", link: "/frontEnd/html/" },
             { text: "CSS 理论知识点", link: "/frontEnd/css/" },
+          ],
+        },
+      ],
+      "/framework": [],
+      "/algorithm": [
+        {
+          text: "算法题目记录",
+          collapsed: false,
+          items: [
+            { text: "LeetCode算法题", link: "/algorithm/leetcode/all" },
+            { text: "huawei牛客", link: "/algorithm/huawei/niuke" },
           ],
         },
       ],
