@@ -8,7 +8,7 @@ const DEV = inject('DEV') as Ref<boolean>
   <img
     v-if="!DEV"
     class="visitor"
-    src="https://visitor-badge.glitch.me/badge?page_id=harrisonls.github.io&right_color=blue"
+    src="https://visitor-badge.glitch.me/badge?page_id=harrisonls.github.io"
     onerror="this.style.display='none'"
   />
 </template>
