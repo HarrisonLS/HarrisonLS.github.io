@@ -65,6 +65,7 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: "Javascript相关", link: "/frontEnd/interview/js" },
+            { text: "浏览器相关", link: "/frontEnd/interview/browser" },
           ],
         },
       ],
