@@ -18,6 +18,7 @@ export default defineConfig({
           { text: "ES6 常用知识", link: "/frontEnd/es6/" },
           { text: "TypeScript 基础知识", link: "/frontEnd/typescript/base" },
           { text: "浏览器相关知识", link: "/frontEnd/browser/" },
+          { text: "面试宝典", link: "/frontEnd/interview/js" }
         ],
         activeMatch: "^/frontEnd",
       },
@@ -57,6 +58,13 @@ export default defineConfig({
           items: [
             { text: "HTML 理论知识点", link: "/frontEnd/html/" },
             { text: "CSS 理论知识点", link: "/frontEnd/css/" },
+          ],
+        },
+        {
+          text: "面试宝典",
+          collapsed: false,
+          items: [
+            { text: "Javascript相关", link: "/frontEnd/interview/js" },
           ],
         },
       ],
