@@ -31,6 +31,29 @@ export default defineConfig({
         ],
       },
       {
+        text: "工具&技巧",
+        items: [
+          {
+            text: "提效工具",
+            items: [
+              { text: "Git", link: "/skill/react" },
+              { text: "Npm", link: "/skill/react" },
+              { text: "Yarn", link: "/skill/react" },
+              { text: "Pnpm", link: "/skill/react" },
+            ],
+          },
+          {
+            text: "环境配置与设置",
+            items: [
+              { text: "Git", link: "/skill/react" },
+              { text: "Npm", link: "/skill/react" },
+              { text: "Yarn", link: "/skill/react" },
+              { text: "Pnpm", link: "/skill/react" },
+            ],
+          },
+        ],
+      },
+      {
         text: "算法",
         items: [
           { text: "LeetCode记录", link: "/algorithm/leetcode/all" },
