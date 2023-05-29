@@ -14,11 +14,12 @@ export default defineConfig({
         text: "前端",
         items: [
           { text: "JavaScript 基础知识", link: "/frontEnd/javascript/type" },
-          { text: "CSS 理论知识", link: "/frontEnd/css/index" },
-          { text: "ES6 常用知识", link: "/frontEnd/es6/" },
+          { text: "CSS 基础知识", link: "/frontEnd/css/index" },
+          { text: "ES6 基础知识", link: "/frontEnd/es6/" },
           { text: "TypeScript 基础知识", link: "/frontEnd/typescript/base" },
-          { text: "浏览器相关知识", link: "/frontEnd/browser/" },
-          { text: "面试宝典", link: "/frontEnd/interview/js" }
+          { text: "浏览器 基础知识", link: "/frontEnd/browser/" },
+          { text: "计算机网络 基础知识", link: "/frontEnd/network/" },
+          { text: "面试宝典", link: "/frontEnd/interview/js" },
         ],
         activeMatch: "^/frontEnd",
       },
@@ -26,7 +27,7 @@ export default defineConfig({
         text: "框架使用",
         items: [
           { text: "React", link: "/framework/react" },
-          { text: "Vue", link: "/framework/react" },
+          { text: "Vue", link: "/framework/vue" },
           { text: "NextJS", link: "/framework/react" },
           { text: "Taro", link: "/framework/react" },
         ],
@@ -37,10 +38,8 @@ export default defineConfig({
           {
             text: "提效工具",
             items: [
-              { text: "Git", link: "/skill/react" },
-              { text: "Npm", link: "/skill/react" },
-              { text: "Yarn", link: "/skill/react" },
-              { text: "Pnpm", link: "/skill/react" },
+              { text: "Git", link: "/skill/git/" },
+              { text: "包管理", link: "/skill/npm/" },
             ],
           },
           {
@@ -69,9 +68,10 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: "数据类型及方法", link: "/frontEnd/javascript/type" },
+            { text: "事件循环", link: "/frontEnd/javascript/eventLoop" },
             // { text: "引用类型的拷贝", link: "/frontEnd/javascript/clone" },
             // { text: "类型转换", link: "/frontEnd/javascript/conversions" },
-            // { text: "原型和原型链", link: "/frontEnd/javascript/prototype" },
+            { text: "原型和原型链", link: "/frontEnd/javascript/prototype" },
             // { text: "继承", link: "/frontEnd/javascript/inherit" },
           ],
         },
@@ -84,6 +84,14 @@ export default defineConfig({
           ],
         },
         {
+          text: "浏览器/计算机网络",
+          collapsed: false,
+          items: [
+            { text: "浏览器 理论知识点", link: "/frontEnd/browser/" },
+            { text: "计算机网络 理论知识点", link: "/frontEnd/network/" },
+          ],
+        },
+        {
           text: "面试宝典",
           collapsed: false,
           items: [
@@ -93,6 +101,25 @@ export default defineConfig({
         },
       ],
       "/framework": [],
+      "/skill": [
+        {
+          text: "工具使用",
+          collapsed: false,
+          items: [
+            { text: "Git", link: "/skill/git/" },
+            // { text: "Git", link: "/skill/git/" },
+          ],
+        },
+        {
+          text: "包管理",
+          collapsed: false,
+          items: [
+            { text: "Npm", link: "/skill/npm/" },
+            { text: "Pnpm", link: "/skill/pnpm/" },
+            { text: "Yarn", link: "/skill/yarn/" },
+          ],
+        },
+      ],
       "/algorithm": [
         {
           text: "算法题目记录",

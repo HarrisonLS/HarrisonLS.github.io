@@ -16,6 +16,7 @@ void (async function () {
 ```
 
 ## 02
+<img src="https://visitor-badge.glitch.me/badge?page_id=Github主页地址&right_color=red" />
 
 ## 03.字符串分隔
 
