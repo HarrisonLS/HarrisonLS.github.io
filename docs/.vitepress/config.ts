@@ -17,7 +17,6 @@ export default defineConfig({
           { text: "TypeScript 基础知识", link: "/frontEnd/typescript/" },
           { text: "CSS 理论知识", link: "/frontEnd/css/" },
           { text: "ES6 常用知识", link: "/frontEnd/es6/" },
-          { text: "面试宝典", link: "/frontEnd/interview/js" },
           { text: "设计模式", link: "/frontEnd/dm/" },
           { text: "浏览器 基础知识", link: "/frontEnd/browser/" },
           { text: "计算机网络 基础知识", link: "/frontEnd/network/" },
@@ -28,15 +27,6 @@ export default defineConfig({
       {
         text: "框架使用",
         items: [
-          { text: "React", link: "/framework/react" },
-          { text: "Vue", link: "/framework/vue" },
-          { text: "NextJS", link: "/framework/react" },
-          { text: "Taro", link: "/framework/react" },
-        ],
-      },
-      {
-        text: "工具&技巧",
-        items: [
           {
             text: "工作流",
             items: [
@@ -44,8 +34,6 @@ export default defineConfig({
               { text: "Vue", link: "/framework/workflow/vue" },
               { text: "NextJS", link: "/framework/workflow/nextjs" },
               { text: "Taro", link: "/framework/workflow/taro" },
-              { text: "Git", link: "/skill/git/" },
-              { text: "包管理", link: "/skill/npm/" },
             ],
           },
           {
@@ -63,19 +51,17 @@ export default defineConfig({
           {
             text: "提效工具",
             items: [
-              { text: "Git", link: "/skill/react" },
-              { text: "Npm", link: "/skill/react" },
-              { text: "Yarn", link: "/skill/react" },
-              { text: "Pnpm", link: "/skill/react" },
+              { text: "Git", link: "/skill/git/" },
+              { text: "包管理", link: "/skill/npm/" },
             ],
           },
           {
             text: "环境配置与设置",
             items: [
-              { text: "Git", link: "/skill/react" },
-              { text: "Npm", link: "/skill/react" },
-              { text: "Yarn", link: "/skill/react" },
-              { text: "Pnpm", link: "/skill/react" },
+              // { text: "Git", link: "/skill/react" },
+              // { text: "Npm", link: "/skill/react" },
+              // { text: "Yarn", link: "/skill/react" },
+              // { text: "Pnpm", link: "/skill/react" },
             ],
           },
         ],
@@ -139,7 +125,24 @@ export default defineConfig({
           ],
         },
       ],
-      "/framework": [],
+      "/framework": [
+        {
+          text: "workflow工作流",
+          collapsed: false,
+          items: [
+            { text: "React", link: "/framework/workflow/react/" },
+            { text: "Vue", link: "/framework/workflow/vue/" },
+          ],
+        },
+        {
+          text: "状态管理",
+          collapsed: false,
+          items: [
+            { text: "Redux", link: "/framework/state/redux/" },
+            // { text: "Mobx", link: "/framework/state/mobx/" },
+          ],
+        },
+      ],
       "/skill": [
         {
           text: "工具使用",
@@ -159,24 +162,6 @@ export default defineConfig({
           ],
         },
       ],
-      // "/algorithm": [
-      //   {
-      //     text: 'workflow工作流',
-      //     collapsed: false,
-      //     items: [
-      //       { text: 'React', link: '/framework/workflow/react/' },
-      //       { text: 'Vue', link: '/framework/workflow/vue/' },
-      //     ],
-      //   },
-      //   {
-      //     text: '状态管理',
-      //     collapsed: false,
-      //     items: [
-      //       { text: 'Redux', link: '/framework/state/redux/' },
-      //       { text: 'Mobx', link: '/framework/state/mobx/' },
-      //     ],
-      //   },
-      // ],
       "/algorithm": [
         {
           text: "算法题目记录",
