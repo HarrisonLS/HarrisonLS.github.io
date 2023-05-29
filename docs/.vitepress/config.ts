@@ -14,9 +14,11 @@ export default defineConfig({
         text: "前端",
         items: [
           { text: "JavaScript 基础知识", link: "/frontEnd/javascript/type" },
-          { text: "CSS 基础知识", link: "/frontEnd/css/index" },
-          { text: "ES6 基础知识", link: "/frontEnd/es6/" },
-          { text: "TypeScript 基础知识", link: "/frontEnd/typescript/base" },
+          { text: "TypeScript 基础知识", link: "/frontEnd/typescript/" },
+          { text: "CSS 理论知识", link: "/frontEnd/css/" },
+          { text: "ES6 常用知识", link: "/frontEnd/es6/" },
+          { text: "面试宝典", link: "/frontEnd/interview/js" },
+          { text: "设计模式", link: "/frontEnd/dm/" },
           { text: "浏览器 基础知识", link: "/frontEnd/browser/" },
           { text: "计算机网络 基础知识", link: "/frontEnd/network/" },
           { text: "面试宝典", link: "/frontEnd/interview/js" },
@@ -36,10 +38,35 @@ export default defineConfig({
         text: "工具&技巧",
         items: [
           {
-            text: "提效工具",
+            text: "工作流",
             items: [
+              { text: "React", link: "/framework/workflow/react/" },
+              { text: "Vue", link: "/framework/workflow/vue" },
+              { text: "NextJS", link: "/framework/workflow/nextjs" },
+              { text: "Taro", link: "/framework/workflow/taro" },
               { text: "Git", link: "/skill/git/" },
               { text: "包管理", link: "/skill/npm/" },
+            ],
+          },
+          {
+            text: "状态管理",
+            items: [
+              { text: "Redux", link: "/framework/state/redux/" },
+              // { text: 'React', link: '/framework/react' }
+            ],
+          },
+        ],
+      },
+      {
+        text: "工具&技巧",
+        items: [
+          {
+            text: "提效工具",
+            items: [
+              { text: "Git", link: "/skill/react" },
+              { text: "Npm", link: "/skill/react" },
+              { text: "Yarn", link: "/skill/react" },
+              { text: "Pnpm", link: "/skill/react" },
             ],
           },
           {
@@ -57,7 +84,7 @@ export default defineConfig({
         text: "算法",
         items: [
           { text: "LeetCode记录", link: "/algorithm/leetcode/all" },
-          { text: "huawei", link: "/algorithm/huawei/niuke" },
+          // { text: 'huawei', link: '/algorithm/huawei/niuke' },
         ],
       },
     ],
@@ -76,6 +103,10 @@ export default defineConfig({
           ],
         },
         {
+          text: "设计模式",
+          link: "frontEnd/dm/",
+        },
+        {
           text: "HTML / CSS",
           collapsed: false,
           items: [
@@ -89,6 +120,14 @@ export default defineConfig({
           items: [
             { text: "浏览器 理论知识点", link: "/frontEnd/browser/" },
             { text: "计算机网络 理论知识点", link: "/frontEnd/network/" },
+          ],
+        },
+        {
+          text: "TypeScript",
+          collapsed: false,
+          items: [
+            { text: "TypeScript 理论知识点", link: "/frontEnd/typescript/" },
+            // { text: "CSS 理论知识点", link: "/frontEnd/css/" },
           ],
         },
         {
@@ -120,13 +159,31 @@ export default defineConfig({
           ],
         },
       ],
+      // "/algorithm": [
+      //   {
+      //     text: 'workflow工作流',
+      //     collapsed: false,
+      //     items: [
+      //       { text: 'React', link: '/framework/workflow/react/' },
+      //       { text: 'Vue', link: '/framework/workflow/vue/' },
+      //     ],
+      //   },
+      //   {
+      //     text: '状态管理',
+      //     collapsed: false,
+      //     items: [
+      //       { text: 'Redux', link: '/framework/state/redux/' },
+      //       { text: 'Mobx', link: '/framework/state/mobx/' },
+      //     ],
+      //   },
+      // ],
       "/algorithm": [
         {
           text: "算法题目记录",
           collapsed: false,
           items: [
             { text: "LeetCode算法题", link: "/algorithm/leetcode/all" },
-            { text: "huawei牛客", link: "/algorithm/huawei/niuke" },
+            // { text: 'huawei牛客', link: '/algorithm/huawei/niuke' },
           ],
         },
       ],

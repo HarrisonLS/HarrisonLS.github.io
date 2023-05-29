@@ -8,6 +8,7 @@ import AsideSponsors from './components/AsideSponsors.vue'
 import MNavLinks from './components/MNavLinks.vue'
 
 import './styles/index.scss'
+import './styles/var.scss'
 
 if (typeof window !== 'undefined') {
   /* 注销 PWA 服务 */
