@@ -122,6 +122,7 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: 'Javascript相关', link: '/frontEnd/interview/js' },
+            { text: 'CSS相关', link: '/frontEnd/interview/css' },
             { text: '浏览器相关', link: '/frontEnd/interview/browser' },
             { text: 'React相关', link: '/frontEnd/interview/react' },
           ],

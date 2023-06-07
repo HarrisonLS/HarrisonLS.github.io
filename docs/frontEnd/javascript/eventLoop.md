@@ -1,13 +1,17 @@
 # 事件循环机制
 
-事件环的运行机制是，先会执行栈中的内容，栈中的内容执行后执行微任务，微任务清空后再执行宏任务，先取出一个宏任务，再去执行微任务，然后在取宏任务清微任务这样不停的循环。
+事件环的运行机制是，先会执行栈中的内容，栈中的内容执行后执行微任务，微任务清空后再执行宏任务，先取出一个宏任务，再去执行微任务，然后在取宏任务清微任务这样不停的循环。  
+也分浏览器环境与 node 环境，一般指的是浏览器环境
 
 - 宏任务
   - 宿主环境提供的，比如浏览器
     ajax、setTimeout、setInterval、setTmmediate(只兼容 ie)、script、requestAnimationFrame、messageChannel、UI 渲染、一些浏览器 api
 - 微任务
+
   - 语言本身提供的，比如 promise.then
     then、queueMicrotask(基于 then)、mutationObserver(浏览器提供)、messageChannel 、mutationObersve
+
+- [在线练习网站](http://jsv9000.app)
 
 ## 例子与输出结果
 

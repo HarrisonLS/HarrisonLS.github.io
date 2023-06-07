@@ -245,6 +245,17 @@ export const NAV_DATA: NavData[] = [
     ],
   },
   {
+    title: "TypeScript 工具",
+    items: [
+      {
+        // icon: "https://svelte.dev/svelte-logo-horizontal.svg",
+        title: "TypeScript在线playground",
+        desc: "一个给你提供编写，分享和学习 TypeScript 的网站",
+        link: "https://www.typescriptlang.org/zh/play",
+      },
+    ],
+  },
+  {
     title: "CSS 相关",
     items: [
       {

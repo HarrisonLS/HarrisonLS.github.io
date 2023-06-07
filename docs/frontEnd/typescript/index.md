@@ -2,6 +2,134 @@
 
 - [英文文档](https://www.typescriptlang.org/)
 - [中文文档](https://www.tslang.cn/)
+- [在线 playground](https://www.typescriptlang.org/zh/play)
+- [TypeScript 入门教程](https://ts.xcatliu.com/)
+
+## 官网学习
+
+### 基础类型
+
+- 布尔值 boolean
+- 数字 number
+- 字符串 string
+- 数组 [] || Array<元素类型>
+- 元组 Tuple
+- 枚举
+
+```ts
+// 默认情况下，从0开始为元素编号
+enum Color {
+  Red,
+  Green,
+  Blue,
+} // 0 1 2
+let c: Color = Color.Green;
+
+enum Color1 {
+  Red = 1,
+  Green,
+  Blue,
+} // 1 2 3
+let c1: Color1 = Color1.Green;
+
+enum Color2 {
+  Red = 1,
+  Green = 2,
+  Blue = 4,
+} // 1 2 4
+let c2: Color2 = Color2.Green;
+```
+
+- Any
+- void
+- Null 和 Undefined
+- Never
+- Object
+
+### 类型断言
+
+用户主观意见
+
+- 尖括号语法
+
+```ts
+let someValue: any = "this is a string";
+
+let strLength: number = (<string>someValue).length;
+```
+
+- as 语法
+
+```ts
+let some_value: any = "this is a string";
+
+let str_length: number = (someValue as string).length;
+```
+
+### 泛型
+
+```ts
+/*
+ * 何为泛型
+ */
+function identity_number(arg: number): number {
+  return arg;
+}
+
+function identity_any(arg: any): any {
+  return arg;
+}
+
+function identity<T>(arg: T): T {
+  return arg;
+}
+```
+
+- 泛型类型
+
+```ts
+/*
+ * 泛型类型
+ */
+function identity_type<T>(arg: T): T {
+  return arg;
+}
+
+// let myIdentity: <T>(arg: T) => T = identity_type;
+
+/*
+ * 泛型接口
+ */
+interface GenericIdentityFn<T> {
+  (arg: T): T;
+}
+
+let myIdentity: GenericIdentityFn<number> = identity_type;
+
+/*
+ * 泛型类
+ */
+class GenericNumber<T> {
+  zeroValue: T;
+  add: (x: T, y: T) => T;
+}
+
+let myGenericNumber = new GenericNumber<number>();
+myGenericNumber.zeroValue = 0;
+myGenericNumber.add = function (x, y) {
+  return x + y;
+};
+```
+
+## TypeScript 入门教程
+
+### 联合类型
+
+```ts
+let mySaturday: string | number;
+mySaturday = "weekend";
+mySaturday = 6;
+```
 
 ## 掘金——Typescript 全面进阶指南
 
@@ -23,11 +151,21 @@ tsc --init
 #### 类型别名 type
 
 ```typescript
-type Handler = (e: Event) => void
+type Handler = (e: Event) => void;
 
-const clickHandler: Handler = (e) => {}
-const moveHandler: Handler = (e) => {}
-const dragHandler: Handler = (e) => {}
+const clickHandler: Handler = (e) => {};
+const moveHandler: Handler = (e) => {};
+const dragHandler: Handler = (e) => {};
+```
+
+#### 字面量类型
+
+```ts
+interface Tmp {
+  bool: true | false;
+  num: 1 | 2 | 3;
+  str: "lin" | "sen";
+}
 ```
 
 #### 联合类型
@@ -36,19 +174,19 @@ const dragHandler: Handler = (e) => {}
 interface Tmp {
   user:
     | {
-        vip: true
-        expires: string
+        vip: true;
+        expires: string;
       }
     | {
-        vip: false
-        promotion: string
-      }
+        vip: false;
+        promotion: string;
+      };
 }
 
-declare var tmp: Tmp
+declare var tmp: Tmp;
 
 if (tmp.user.vip) {
-  console.log(tmp.user.expires)
+  console.log(tmp.user.expires);
 }
 ```
 
@@ -56,19 +194,19 @@ if (tmp.user.vip) {
 
 ```typescript
 interface NameStruct {
-  name: string
+  name: string;
 }
 
 interface AgeStruct {
-  age: number
+  age: number;
 }
 
-type ProfileStruct = NameStruct & AgeStruct
+type ProfileStruct = NameStruct & AgeStruct;
 
 const profile: ProfileStruct = {
-  name: 'linbudu',
+  name: "linbudu",
   age: 18,
-}
+};
 ```
 
 #### 对象字面量类型
@@ -77,25 +215,78 @@ const profile: ProfileStruct = {
 // 对象字面量类型就是一个对象类型的值。当然，这也就意味着这个对象的值全都为字面量值
 interface Tmp {
   obj: {
-    name: 'linbudu'
-    age: 18
-  }
+    name: "linbudu";
+    age: 18;
+  };
 }
 
 const tmp: Tmp = {
   obj: {
-    name: 'linbudu',
+    name: "linbudu",
     age: 18,
   },
+};
+```
+
+#### 枚举
+
+```ts
+// 可以同时使用字符串枚举值和数字枚举值
+enum Mixed {
+  Num = 599,
+  Str = "linsen",
 }
 ```
+
+**枚举和对象的重要差异在于，对象是单向映射的，我们只能从键映射到键值。而枚举是双向映射的，即你可以从枚举成员映射到枚举值，也可以从枚举值映射到枚举成员**
+
+```ts
+enum Items {
+  Foo,
+  Bar,
+  Baz,
+}
+
+const fooValue = Items.Foo; // 0
+const fooKey = Items[0]; // "Foo"
+```
+
+### 函数
 
 #### 函数的类型签名
 
 ```typescript
 function foo(name: string): number {
-  return name.length
+  return name.length;
 }
+```
+
+#### 函数重载签名
+
+```ts
+function func(foo: number, bar: true): string;
+function func(foo: number, bar?: false): number;
+function func(foo: number, bar?: boolean): string | number {
+  if (bar) {
+    return String(foo);
+  } else {
+    return foo * 599;
+  }
+}
+
+const res1 = func(599); // number
+const res2 = func(599, true); // string
+const res3 = func(599, false); // number
+```
+
+#### 异步函数、Generator 函数等类型签名
+
+```ts
+async function asyncFunc(): Promise<void> {}
+
+function* genFunc(): Iterable<void> {}
+
+async function* asyncGenFunc(): AsyncIterable<void> {}
 ```
 
 ## 类型挑战
@@ -108,7 +299,6 @@ function foo(name: string): number {
 ### TypeScript 中的“as const”是什么意思？
 
 [https://blog.csdn.net/weixin_45747310/article/details/120479974](https://blog.csdn.net/weixin_45747310/article/details/120479974)
-
 
 ### extends 关键字
 

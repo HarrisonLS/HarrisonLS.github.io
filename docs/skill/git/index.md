@@ -103,3 +103,9 @@ git pull --rebase origin master
 再次 push 后发现不报错了
 
 ![image.png](https://cdn.nlark.com/yuque/0/2021/png/605135/1632386825052-109f106f-aec1-44f2-9a18-fdbee418c13c.png#clientId=u5b443532-442d-4&from=paste&height=124&id=u3d4cbdf0&originHeight=248&originWidth=897&originalType=binary&ratio=1&size=124523&status=done&style=none&taskId=u3646f80a-d0d0-48d6-9fa5-f255d155af1&width=448.5)
+
+## git fetch 和 git pull 的区别
+
+git fetch是将远程主机的最新内容拉到本地，用户在检查了以后决定是否合并到工作本机分支中。  
+而git pull 则是将远程主机的最新内容拉下来后直接合并，即：git pull = git fetch + git merge，这样可能会产生冲突，需要手动解决。  
+![git_fetch](/image/git/git_fetch.png)

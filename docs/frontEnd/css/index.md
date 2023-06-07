@@ -35,6 +35,25 @@ content（元素内容） + padding（内边距） + border（边框） + margin
 
 ### 5、Flex 布局
 
+容器的属性：
+
+- flex-direction：决定主轴的方向（即子 item 的排列方法）flex-direction: row | row-reverse | column | column-reverse;
+- flex-wrap：决定换行规则 flex-wrap: nowrap | wrap | wrap-reverse;
+- flex-flow： .box { flex-flow: || ; }
+- justify-content：对其方式，水平主轴对齐方式
+- align-items：对齐方式，竖直轴线方向
+- align-content
+
+项目的属性（元素的属性）：
+
+- order 属性：定义项目的排列顺序，顺序越小，排列越靠前，默认为 0
+- flex-grow 属性：定义项目的放大比例，即使存在空间，也不会放大
+- flex-shrink 属性：定义了项目的缩小比例，当空间不足的情况下会等比例的缩小，如果 定义个 item 的 flow-shrink 为 0，则为不缩小
+- flex-basis 属性：定义了在分配多余的空间，项目占据的空间。
+- flex：是 flex-grow 和 flex-shrink、flex-basis 的简写，默认值为 0 1 auto。
+- align-self：允许单个项目与其他项目不一样的对齐方式，可以覆盖
+- align-items，默认属 性为 auto，表示继承父元素的 align-items 比如说，用 flex 实现圣杯布局
+
 ### 伪类和伪元素
 
 css 引入伪类和伪元素概念是为了格式化文档树以外的信息。也就是说，伪类和伪元素都是用来修饰不在文档树中的部分
@@ -135,6 +154,6 @@ transform: scale(0.7);
 - 而行内元素是没有宽高的，所以对于行内元素设置小于 12px，我们可以加上一个 display:inline-block;
   :::
 
-
 ## 相关文章
+
 [面试知识点复盘【CSS】篇](https://juejin.cn/post/7179809074551193659/)
