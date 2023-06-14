@@ -131,6 +131,23 @@ mySaturday = "weekend";
 mySaturday = 6;
 ```
 
+### 对象的类型 —— 接口
+
+```ts
+interface Person {
+  name: string;
+  age: number;
+  // 添加问号变为可选属性
+  // age?: number;
+}
+
+let harrison: Person = {
+  name: "harrison",
+  age: 25,
+};
+// 缺少或多出属性都会引起typescript检查报错
+```
+
 ## 掘金——Typescript 全面进阶指南
 
 ### 准备工作
@@ -151,6 +168,12 @@ tsc --init
 #### 类型别名 type
 
 ```typescript
+type StatusCode = 200 | 301 | 400 | 500 | 502;
+type PossibleDataTypes = string | number | (() => unknown);
+
+const status: StatusCode = 502;
+
+// 抽离一个函数类型
 type Handler = (e: Event) => void;
 
 const clickHandler: Handler = (e) => {};
