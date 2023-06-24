@@ -31,9 +31,10 @@ export default defineConfig({
             text: '工作流',
             items: [
               { text: 'React', link: '/framework/workflow/react/' },
-              { text: 'Vue', link: '/framework/workflow/vue' },
-              { text: 'NextJS', link: '/framework/workflow/nextjs' },
-              { text: 'Taro', link: '/framework/workflow/taro' },
+              { text: 'Vue', link: '/framework/workflow/vue/' },
+              { text: 'NextJS', link: '/framework/workflow/nextjs/' },
+              { text: 'Taro', link: '/framework/workflow/taro/' },
+              { text: 'IceJS', link: '/framework/workflow/ice/' },
             ],
           },
           {
@@ -135,6 +136,7 @@ export default defineConfig({
           items: [
             { text: 'React', link: '/framework/workflow/react/' },
             { text: 'Vue', link: '/framework/workflow/vue/' },
+            { text: 'IceJS', link: '/framework/workflow/ice/' },
           ],
         },
         {
