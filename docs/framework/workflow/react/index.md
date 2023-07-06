@@ -6,6 +6,180 @@
 UI = render(data)
 :::
 
+## 基础理解
+
+### react 中的组件通信方式
+
+- props 和 callback
+- context（跨层级）
+- Event 事件
+- ref 传递
+- 状态管理
+
+### 强化组件的四种方式
+
+- mixin 模式(已废弃)
+- extends
+- 高阶组件
+- 自定义 hook
+
+#### extends
+
+```js
+// 新写的类组件中如果有同名的重写方法，会覆盖所被继承的类组件里的方法
+class App extends React.Component {}
+```
+
+#### 高阶组件
+
+```ts
+import React, { useState } from 'react'
+import { Button } from 'antd'
+
+const HOC = (Component: any) => (props: any) => {
+  return <Component name={'harrison'} {...props}></Component>
+}
+
+const Index: React.FC<any> = (props) => {
+  const [flag, setFlag] = useState<boolean>(false)
+
+  return (
+    <div>
+      <Button type="primary" onClick={() => setFlag(true)}>
+        获取props
+      </Button>
+      {flag && <div>{JSON.stringify(props)}</div>}
+    </div>
+  )
+}
+
+export default HOC(Index)
+```
+
+### React Hooks
+
+#### useState
+
+useState 有点类似于 PureComponent，它会进行一个比较浅的比较，这就导致了一个问题，如果是对象直接传入的时候，并不会实时更新
+
+```ts
+import { useState } from 'react'
+import { Button } from 'antd'
+
+const Index: React.FC<any> = () => {
+  const [state, setState] = useState({ number: 0 })
+  let [count, setCount] = useState(0)
+
+  return (
+    <>
+      <div>数字形式：{count}</div>
+      <Button
+        type="primary"
+        onClick={() => {
+          count++
+          setCount(count)
+        }}
+      >
+        点击+1
+      </Button>
+      <div>对象形式：{state.number}</div>
+      <Button
+        type="primary"
+        onClick={() => {
+          state.number++
+          setState(state)
+        }}
+      >
+        点击+1
+      </Button>
+    </>
+  )
+}
+
+export default Index
+```
+
+#### useEffect
+
+副作用，这个钩子成功弥补了函数式组件没有生命周期的缺陷.  
+基本使用
+
+```ts
+useEffect(() => {
+  return destory
+}, deps)
+```
+
+#### useContext
+
+设置全局共享数据，使所有组件可跨层级实现共享。  
+基本使用
+
+```ts
+const contextValue = useContext(context)
+```
+
+用法介绍
+```ts
+import { useState, createContext, useContext } from "react";
+import { Button } from "antd";
+
+const CountContext = createContext(-1);
+
+const Child = () => {
+  const count = useContext(CountContext);
+
+  return (
+    <div style={{ marginTop: 10 }}>
+      子组件获取到的count: {count}
+      <Son />
+    </div>
+  );
+};
+
+const Son = () => {
+  const count = useContext(CountContext);
+
+  return <div style={{ marginTop: 10 }}>孙组件获取到的count: {count}</div>;
+};
+
+const Index: React.FC<any> = () => {
+  let [count, setCount] = useState(0);
+
+  return (
+    <>
+      <div>父组件中的count：{count}</div>
+      <Button type="primary" onClick={() => setCount((v) => v + 1)}>
+        点击+1
+      </Button>
+      <CountContext.Provider value={count}>
+        <Child />
+      </CountContext.Provider>
+    </>
+  );
+};
+ 
+export default Index;
+
+```
+
+#### useReducer
+
+#### useMemo
+
+
+#### useCallback
+
+
+#### useRef
+
+
+#### useImperativeHandle
+
+#### useLayoutEffect
+
+#### useDebugValue
+
 ## 虚拟 DOM
 
 React.createElement 计算出来的东西叫做虚拟 DOM，虚拟 DOM 仅仅是对真实 DOM 的一层描述而已。要想把虚拟 DOM 转换为真实 DOM，我们需要调用的是  ReactDOM.render()这个 API
@@ -71,5 +245,6 @@ export default function App() {
 ## 相关文章
 
 - [javascript 函数式编程实践指南小册](https://juejin.cn/book/7173591403639865377)
+- [玩转 React Hooks ](https://juejin.cn/book/7230622711905517605)
 - [一文吃透 React 高阶组件(HOC)](https://juejin.cn/post/6940422320427106335#heading-55)
 - [「React 进阶」 学好这些 React 设计模式，能让你的 React 项目飞起来](https://juejin.cn/post/7007214462813863950#heading-8)
