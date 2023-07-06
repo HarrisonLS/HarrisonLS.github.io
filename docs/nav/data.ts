@@ -34,6 +34,12 @@ export const NAV_DATA: NavData[] = [
         desc: 'JSON 在线解析及格式化验证',
         link: 'https://www.json.cn',
       },
+      {
+        icon: 'https://c.runoob.com/wp-content/uploads/2016/11/regular.png',
+        title: '正则表达式在线测试',
+        desc: '菜鸟工具 正则表达式格式化验证',
+        link: 'https://c.runoob.com/front-end/854/',
+      },
     ],
   },
   {
