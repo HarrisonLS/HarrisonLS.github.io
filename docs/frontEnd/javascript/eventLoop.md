@@ -13,7 +13,11 @@
 
 - [在线练习网站](http://jsv9000.app)
 
+![eventLoop](/image/javascript/eventLoop/eventLoop.webp)
+
 ## 例子与输出结果
+
+### example 1
 
 ```js
 setTimeout(function () {
@@ -63,4 +67,44 @@ then4
 set2
 ```
 
-![eventLoop](/image/javascript/eventLoop/eventLoop.webp)
+  ### example 2
+
+```js
+async function async1() {
+  console.log("async1 start");
+  await async2();
+  console.log("async1 end");
+}
+async function async2() {
+  console.log("async2");
+}
+console.log("script start");
+setTimeout(function () {
+  console.log("setTimeout");
+}, 0);
+async1();
+new Promise(function (resolve) {
+  console.log("promise1");
+  resolve();
+  console.log("promise2");
+}).then(function () {
+  console.log("promise3");
+});
+console.log("script end");
+```
+
+
+结果
+
+```text
+script start
+async1 start
+async2
+promise1
+promise2
+script end
+
+在含有await的async中，同一代码块中await后的所有代码将被放置
+返回的promise的then方法中执行，也即await后的代码将被加载进微任务队列
+而promise的resolve后的代码不会被放进微任务队列，所以会直接打印promise2.
+```

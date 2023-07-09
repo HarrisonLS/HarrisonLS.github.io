@@ -41,6 +41,33 @@ function outer() {
 const fn = outer(); //调用一次fn会让a的值+1
 ```
 
+## IIFE
+
+```js
+// IIFE示例写法
+var add = (function () {
+  var counter = 0;
+  return function () {
+    return ++counter;
+  };
+})();
+
+console.log(add()); //1
+console.log(add()); //2
+
+var b = 10;
+(function b() {
+  b = 20;
+  console.log(b);
+})();
+
+// 打印结果
+// ƒ b(){
+//     b = 20;
+//     console.log(b);
+// }
+```
+
 ## 防抖、节流以及实现原理
 
 防抖：多次操作下只取最后一次
