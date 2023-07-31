@@ -193,7 +193,11 @@ ReactDOM.render(<App />, rootElement)
 
 ### 什么是 fiber
 
-在 React16 以前，React 更新是通过树的深度优先遍历完成的，遍历是不能中断的，当树的层级深就会产生栈的层级过深，页面渲染速度变慢的问题，为了解决这个问题引入了 fiber，React fiber 就是虚拟 DOM，它是一个链表结构，返回了 return、children、siblings，分别代表父 fiber，子 fiber 和兄弟 fiber，随时可中断
+在 React16 以前，React 更新是通过树的深度优先遍历完成的，遍历是不能中断的，当树的层级深就会产生栈的层级过深，页面渲染速度变慢的问题，为了解决这个问题引入了 fiber，React fiber 就是虚拟 DOM，它是一个链表结构，返回了 return、children、siblings，分别代表父 fiber，子 fiber 和兄弟 fiber。
+
+#### 个人理解
+
+fiber是一种处理架构，也可以说是一种数据结构，承担着作为动态element到实际dom结构构建桥梁的作用；在实际上是使用fiber结构完成虚拟DOM的构建，再根据双缓冲树机制，进行深度遍历的一系列操作，完成DOM结构的更新。
 
 ## 组件设计
 

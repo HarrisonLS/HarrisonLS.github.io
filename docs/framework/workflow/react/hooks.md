@@ -7,7 +7,7 @@
 ```ts
 import { useRef } from "react";
 
-const useLatest = <T,>(value: T): { readonly current: T } => {
+const useLatest = <T>(value: T): { readonly current: T } => {
   const ref = useRef(value);
   ref.current = value;
 
@@ -15,10 +15,9 @@ const useLatest = <T,>(value: T): { readonly current: T } => {
 };
 
 export default useLatest;
-
-
 ```
- 用法
+
+用法
 
 ```ts
 import { useState, useEffect } from "react";
@@ -26,16 +25,16 @@ import { useState, useEffect } from "react";
 const Count = () => {
   const [count, setCount] = useState(0);
 
- const ref = useLatest(count);
- 
-    useEffect(() => {
-        const interval = setInterval(() => {
-          console.log("count:", count);
-          console.log("ref:", ref);
-          setCount(ref.current + 1);
-        }, 1000);
-        return () => clearInterval(interval);
-    }, []);
+  const ref = useLatest(count);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      console.log("count:", count);
+      console.log("ref:", ref);
+      setCount(ref.current + 1);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <>
@@ -48,8 +47,8 @@ const Count = () => {
 export default Count;
 ```
 
+### useMount 组件初始化执行的 hook
 
-### useMount 组件初始化执行的hook
 ```ts
 // useMount
 import { useEffect } from "react";
@@ -61,11 +60,9 @@ const useMount = (fn: () => void) => {
 };
 
 export default useMount;
-
-
 ```
 
-### useUnmount 组件卸载时的hook
+### useUnmount 组件卸载时的 hook
 
 ```ts
 // useUnmount
@@ -84,10 +81,10 @@ const useUnmount = (fn: () => void) => {
 };
 
 export default useUnmount;
-
 ```
 
 ### useUnmountedRef 获取当前组件是否卸载
+
 ```ts
 import { useEffect, useRef } from "react";
 
@@ -105,7 +102,6 @@ const useUnmountedRef = (): { readonly current: boolean } => {
 };
 
 export default useUnmountedRef;
-
 ```
 
 ### useSafeState(未了解)
@@ -122,10 +118,10 @@ function useUpdate(): () => void {
 }
 
 export default useUpdate;
-
 ```
 
 ### useCreation 强化 useMemo 和 useRef，用法与 useMemo 一样，一般用于性能优化
- 
+
 ## 参考文章
-![玩转React Hooks](https://juejin.cn/book/7230622711905517605)
+
+[玩转 React Hooks](https://juejin.cn/book/7230622711905517605)
