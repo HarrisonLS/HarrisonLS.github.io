@@ -25,6 +25,13 @@ export default defineConfig({
         activeMatch: "^/frontEnd",
       },
       {
+        text: "后端",
+        items: [
+          { text: "NestJS", link: "/backEnd/nest/" },
+          { text: "Docker", link: "/backEnd/docker/" },
+        ],
+      },
+      {
         text: "框架使用",
         items: [
           {
@@ -127,6 +134,18 @@ export default defineConfig({
             { text: "浏览器相关", link: "/frontEnd/interview/browser" },
             { text: "React相关", link: "/frontEnd/interview/react" },
           ],
+        },
+      ],
+      "/backEnd/": [
+        {
+          text: "NestJS",
+          collapsed: false,
+          items: [{ text: "基础知识", link: "backEnd/nest/index" }],
+        },
+        {
+          text: "Docker",
+          collapsed: false,
+          items: [{ text: "基础知识", link: "backEnd/docker/index" }],
         },
       ],
       "/framework": [
