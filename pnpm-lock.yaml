@@ -14,11 +14,13 @@ specifiers:
   sitemap: ^7.1.1
   vitepress: 1.0.0-alpha.75
   vue: ^3.3.4
+  xmind-embed-viewer: ^1.2.0
 
 dependencies:
   react: 18.2.0
   vitepress: 1.0.0-alpha.75_2r4xjg2ympdb4kmcmnaqw5sw7e
   vue: 3.3.4
+  xmind-embed-viewer: 1.2.0
 
 devDependencies:
   '@femm/prettier': 1.1.0
@@ -1614,6 +1616,10 @@ packages:
       string-width: 4.2.3
       strip-ansi: 6.0.1
     dev: true
+
+  /xmind-embed-viewer/1.2.0:
+    resolution: {integrity: sha512-dtsxbeePxhSy3g/Kyc4Oe1K3hfdCmkiyRtvONN2KZ2MqeL/QBFTvL4imCiXfAiLpincl42r87OOA3V3Shcza4A==}
+    dev: false
 
   /yaml/2.2.2:
     resolution: {integrity: sha512-CBKFWExMn46Foo4cldiChEzn7S7SRV+wqiluAb6xmueD/fGyRHIhX8m14vVGgeFWjN540nKCNVj6P21eQjgTuA==}

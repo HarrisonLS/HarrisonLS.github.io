@@ -1,19 +1,29 @@
 {
-  "hash": "76c89137",
-  "browserHash": "eaa0876a",
+  "hash": "4be5be02",
+  "browserHash": "4b10f3eb",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/.pnpm/vue@3.3.4/node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "6d77227c",
+      "fileHash": "43fde79f",
       "needsInterop": false
     },
     "@mdit-vue/shared": {
       "src": "../../../../node_modules/.pnpm/@mdit-vue+shared@0.12.0/node_modules/@mdit-vue/shared/dist/index.mjs",
       "file": "@mdit-vue_shared.js",
-      "fileHash": "85d2f808",
+      "fileHash": "e66785e0",
+      "needsInterop": false
+    },
+    "xmind-embed-viewer": {
+      "src": "../../../../node_modules/.pnpm/xmind-embed-viewer@1.2.0/node_modules/xmind-embed-viewer/dist/esm/index.js",
+      "file": "xmind-embed-viewer.js",
+      "fileHash": "b91d6cdd",
       "needsInterop": false
     }
   },
-  "chunks": {}
+  "chunks": {
+    "chunk-T2T6Q22Z": {
+      "file": "chunk-T2T6Q22Z.js"
+    }
+  }
 }
