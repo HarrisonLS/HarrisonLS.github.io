@@ -67,3 +67,26 @@ nest 创建 crud 服务
 - 安装 @nestjs/cli，使用 nest new xxx 创建一个 Nest 的项目，
 - 在根目录执行 nest g resource person 快速生成 person 模块的 crud 代码
 - nest start --watch 启动 Nest 服务
+
+
+    
+#### TypeOrmModule 模版
+
+```js
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: 'localhost',
+      port: 3306,
+      username: 'root',
+      password: 'linsen123',
+      database: 'email_login_test',
+      synchronize: true,
+      logging: true,
+      entities: [],
+      poolSize: 10,
+      connectorPackage: 'mysql2',
+      extra: {
+        authPlugin: 'sha256_password',
+      },
+    }),
+```
