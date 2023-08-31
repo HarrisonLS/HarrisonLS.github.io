@@ -183,6 +183,31 @@ Function.prototype.myCall = function (ctx) {
 
 ## 柯里化函数
 
+```js
+const curry = (fn, ...args) => {
+  console.log("args: ", args);
+  console.log("fn: ", fn.length);
+  // 函数的参数个数可以直接通过函数数的.length属性来访问
+  return args.length >= fn.length // 这个判断很关键！！！
+    ? // 传入的参数大于等于原始函数fn的参数个数，则直接执行该函数
+      fn(...args)
+    : /**
+       * 传入的参数小于原始函数fn的参数个数时
+       * 则继续对当前函数进行柯里化，返回一个接受所有参数（当前参数和剩余参数） 的函数
+       */
+      (..._args) => curry(fn, ...args, ..._args);
+};
+
+function add1(x, y, z) {
+  return x + y + z;
+}
+const add = curry(add1);
+console.log(add(1, 2, 3));
+console.log(add(1)(2)(3));
+// console.log(add(1, 2)(3));
+// console.log(add(1)(2, 3));
+```
+
 ## 箭头函数与普通函数的区别
 
 1. 箭头函数没有自己的 this
@@ -275,7 +300,107 @@ const arr2 = ["one", ...arr1, "four", "five"]; // ["one", "two", "three", "four"
 [..."hello"]; // [ "h", "e", "l", "l", "o" ]
 ```
 
-# ajax、axios、fetch 的区别
+## for 循环和 forEach 的区别
+
+- 实际上是想考察 forEach 底层使用 iterator 实现的问题
+
+参考文章 —— [有了 for 循环 为什么还要 forEach？](https://juejin.cn/post/7018097650687803422?searchId=20230821213153BB2DD9CAE061F6F01A9B)
+
+```js
+// 1.for循环可以用break跳出，而forEach不行
+const list = [0, 1, 2, 3, 4];
+
+// 1.for循环可以用break跳出，而forEach不行
+for (let i = 0; i <= 5; i++) {
+  console.log("i: ", i);
+  if (i === 3) {
+    break;
+  }
+}
+
+const res = list.forEach((item, i) => {
+  if (i === 3) {
+    // break  会直接编译错误 无法跳出循环
+    console.log("item: ", item);
+  }
+});
+
+// 利用try catch抛出异常 中断循环
+const res1 = list.forEach((item, i) => {
+  try {
+    if (i === 3) {
+      console.log("item: ", item);
+      throw new Error("跳出循环");
+    }
+  } catch (e) {
+    console.log("e: ", e);
+  }
+});
+
+// 通过影响源数据中断循环
+const res2 = list.forEach((item, i) => {
+  console.log("item: ", item);
+  if (i === 3) {
+    console.log("stop: ", item);
+    list.length = 0;
+  }
+});
+console.log("list: ", list);
+
+// 2.for 循环可以控制循环起点，forEach默认索引只能从0开始
+```
+
+## Promise 批处理方法的区别
+
+- all
+
+###
+
+- race
+- any
+- allSettled
+
+```js
+const promiseReject1 = new Promise((resolve, reject) =>
+  setTimeout(reject, 500, "promiseReject1")
+);
+const promiseReject2 = new Promise((resolve, reject) =>
+  setTimeout(reject, 1000, "promiseReject2")
+);
+const promiseReject3 = new Promise((resolve, reject) =>
+  setTimeout(reject, 1500, "promiseReject3")
+);
+
+const promiseResolve1 = new Promise((resolve, reject) =>
+  setTimeout(resolve, 500, "promiseResolve1")
+);
+const promiseResolve2 = new Promise((resolve, reject) =>
+  setTimeout(resolve, 1000, "promiseResolve2")
+);
+const promiseResolve3 = new Promise((resolve, reject) =>
+  setTimeout(resolve, 1500, "promiseResolve3")
+);
+
+// Promise.all([promiseReject1, promiseReject1, promiseResolve2])
+//   .then((value) => console.log(`Result Promise.all: ${value}`))
+//   .catch((err) => console.log("Result Promise.all err", err));
+// Result Promise.all err" "promiseReject1
+
+Promise.race([promiseReject3, promiseResolve1, promiseResolve2])
+  .then((value) => console.log(`Result Promise.race: ${value}`))
+  .catch((err) => console.log(`Result Promise.race err: ${err}`));
+// Result Promise.race: promiseResolve1
+
+// Promise.any([promiseResolve1, promiseReject3, promiseResolve2])
+//   .then((value) => console.log(`Result Promise.any: ${value}`))
+//   .catch((err) => console.log(`Result Promise.any err: ${err}`));
+
+// Promise.allSettled([promiseReject3, promiseResolve1, promiseResolve2])
+//   .then((value) => console.log(`Result Promise.allSettled: ${value}`))
+//   .catch((err) => console.log(`Result Promise.allSettled err: ${err}`));
+```
+
+## ajax、axios、fetch 的区别
 
 - Ajax
 

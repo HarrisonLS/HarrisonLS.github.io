@@ -29,6 +29,7 @@ export default defineConfig({
         items: [
           { text: "NestJS", link: "/backEnd/nest/" },
           { text: "Docker", link: "/backEnd/docker/" },
+          { text: "Rust", link: "/backEnd/rust/" },
         ],
       },
       {
@@ -141,6 +142,11 @@ export default defineConfig({
           text: "NestJS",
           collapsed: false,
           items: [{ text: "基础知识", link: "backEnd/nest/index" }],
+        },
+        {
+          text: "Rust",
+          collapsed: false,
+          items: [{ text: "基础知识", link: "backEnd/rust/index" }],
         },
         {
           text: "Docker",
