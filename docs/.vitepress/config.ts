@@ -7,6 +7,7 @@ export default defineConfig({
   description: "A VitePress Site",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    outline: { level: [1, 4] },
     nav: [
       { text: "首页", link: "/" },
       { text: "导航", link: "/nav", activeMatch: "^/nav" },
@@ -82,6 +83,10 @@ export default defineConfig({
           { text: "LeetCode记录", link: "/algorithm/leetcode/all" },
           // { text: 'huawei', link: '/algorithm/huawei/niuke' },
         ],
+      },
+      {
+        text: "兴趣拓展",
+        items: [{ text: "web GL记录", link: "/interest/webgl/" }],
       },
     ],
     sidebar: {
@@ -207,6 +212,13 @@ export default defineConfig({
             { text: "LeetCode算法题", link: "/algorithm/leetcode/all" },
             // { text: 'huawei牛客', link: '/algorithm/huawei/niuke' },
           ],
+        },
+      ],
+      interest: [
+        {
+          text: "webGL",
+          collapsed: false,
+          items: [{ text: "基础记录", link: "/interest/webgl/" }],
         },
       ],
     },
