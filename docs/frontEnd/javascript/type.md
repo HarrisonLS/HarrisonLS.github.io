@@ -68,6 +68,8 @@ console.log(toString.call(null)); //[object Null]
 
 ## 类型包含方法总结
 
+## 隐式转换
+![js隐式类型转换](/image/javascript/js隐式转换.png)
 ### Number
 
 #### toExponential
