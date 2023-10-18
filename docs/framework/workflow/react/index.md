@@ -8,13 +8,28 @@ UI = render(data)
 
 ## 基础理解
 
-### react 中的组件通信方式
+### React 中的组件通信方式
 
 - props 和 callback
 - context（跨层级）
 - Event 事件
 - ref 传递
 - 状态管理
+
+### React 控制 render 渲染的方法
+
+- 从父组件直接隔断子组件的渲染，经典的就是 memo，缓存 element 对象
+- 组件从自身来控制是否 render ，比如：PureComponent ，shouldComponentUpdate
+
+![渲染控制](/image/react/react_render_strategy.png)
+
+#### 什么时候需要注意渲染节流
+
+- 第一种情况数据可视化的模块组件（展示了大量的数据），这种情况比较小心因为一次更新，可能伴随大量的 diff ，数据量越大也就越浪费性能，所以对于数据展示模块组件，有必要采取 memo ， shouldComponentUpdate 等方案控制自身组件渲染。
+
+- 第二种情况含有大量表单的页面，React 一般会采用受控组件的模式去管理表单数据层，表单数据层完全托管于 props 或是 state ，而用户操作表单往往是频繁的，需要频繁改变数据层，所以很有可能让整个页面组件高频率 render 。
+
+- 第三种情况就是越是靠近 app root 根组件越值得注意，根组件渲染会波及到整个组件树重新 render ，子组件 render ，一是浪费性能，二是可能执行 useEffect ，componentWillReceiveProps 等钩子，造成意想不到的情况发生。
 
 ### 强化组件的四种方式
 
@@ -33,15 +48,15 @@ class App extends React.Component {}
 #### 高阶组件
 
 ```ts
-import React, { useState } from 'react'
-import { Button } from 'antd'
+import React, { useState } from "react";
+import { Button } from "antd";
 
 const HOC = (Component: any) => (props: any) => {
-  return <Component name={'harrison'} {...props}></Component>
-}
+  return <Component name={"harrison"} {...props}></Component>;
+};
 
 const Index: React.FC<any> = (props) => {
-  const [flag, setFlag] = useState<boolean>(false)
+  const [flag, setFlag] = useState<boolean>(false);
 
   return (
     <div>
@@ -50,10 +65,10 @@ const Index: React.FC<any> = (props) => {
       </Button>
       {flag && <div>{JSON.stringify(props)}</div>}
     </div>
-  )
-}
+  );
+};
 
-export default HOC(Index)
+export default HOC(Index);
 ```
 
 ### React Hooks
@@ -63,12 +78,12 @@ export default HOC(Index)
 useState 有点类似于 PureComponent，它会进行一个比较浅的比较，这就导致了一个问题，如果是对象直接传入的时候，并不会实时更新
 
 ```ts
-import { useState } from 'react'
-import { Button } from 'antd'
+import { useState } from "react";
+import { Button } from "antd";
 
 const Index: React.FC<any> = () => {
-  const [state, setState] = useState({ number: 0 })
-  let [count, setCount] = useState(0)
+  const [state, setState] = useState({ number: 0 });
+  let [count, setCount] = useState(0);
 
   return (
     <>
@@ -76,8 +91,8 @@ const Index: React.FC<any> = () => {
       <Button
         type="primary"
         onClick={() => {
-          count++
-          setCount(count)
+          count++;
+          setCount(count);
         }}
       >
         点击+1
@@ -86,17 +101,17 @@ const Index: React.FC<any> = () => {
       <Button
         type="primary"
         onClick={() => {
-          state.number++
-          setState(state)
+          state.number++;
+          setState(state);
         }}
       >
         点击+1
       </Button>
     </>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;
 ```
 
 #### useEffect
@@ -106,8 +121,8 @@ export default Index
 
 ```ts
 useEffect(() => {
-  return destory
-}, deps)
+  return destory;
+}, deps);
 ```
 
 #### useContext
@@ -116,10 +131,11 @@ useEffect(() => {
 基本使用
 
 ```ts
-const contextValue = useContext(context)
+const contextValue = useContext(context);
 ```
 
 用法介绍
+
 ```ts
 import { useState, createContext, useContext } from "react";
 import { Button } from "antd";
@@ -158,21 +174,17 @@ const Index: React.FC<any> = () => {
     </>
   );
 };
- 
-export default Index;
 
+export default Index;
 ```
 
 #### useReducer
 
 #### useMemo
 
-
 #### useCallback
 
-
 #### useRef
-
 
 #### useImperativeHandle
 
@@ -185,8 +197,8 @@ export default Index;
 React.createElement 计算出来的东西叫做虚拟 DOM，虚拟 DOM 仅仅是对真实 DOM 的一层描述而已。要想把虚拟 DOM 转换为真实 DOM，我们需要调用的是  ReactDOM.render()这个 API
 
 ```jsx
-const rootElement = document.getElementById('root')
-ReactDOM.render(<App />, rootElement)
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
 ```
 
 ## fiber 架构
@@ -197,7 +209,7 @@ ReactDOM.render(<App />, rootElement)
 
 #### 个人理解
 
-fiber是一种处理架构，也可以说是一种数据结构，承担着作为动态element到实际dom结构构建桥梁的作用；在实际上是使用fiber结构完成虚拟DOM的构建，再根据双缓冲树机制，进行深度遍历的一系列操作，完成DOM结构的更新。
+fiber 是一种处理架构，也可以说是一种数据结构，承担着作为动态 element 到实际 dom 结构构建桥梁的作用；在实际上是使用 fiber 结构完成虚拟 DOM 的构建，再根据双缓冲树机制，进行深度遍历的一系列操作，完成 DOM 结构的更新。
 
 ## 组件设计
 
@@ -217,9 +229,9 @@ function Hoc(Component) {
   return class WrapComponent extends React.Component {
     // 强化操作
     render() {
-      return <Component {...this.props} />
+      return <Component {...this.props} />;
     }
-  }
+  };
 }
 ```
 
@@ -230,9 +242,11 @@ render props 模式和组合模式类似。区别不同的是，用函数的形�
 ```js
 export default function App() {
   const aProps = {
-    name: '《React进阶实践指南》',
-  }
-  return <Container>{(cProps) => <Children {...cProps} {...aProps} />}</Container>
+    name: "《React进阶实践指南》",
+  };
+  return (
+    <Container>{(cProps) => <Children {...cProps} {...aProps} />}</Container>
+  );
 }
 ```
 
@@ -252,3 +266,4 @@ export default function App() {
 - [玩转 React Hooks ](https://juejin.cn/book/7230622711905517605)
 - [一文吃透 React 高阶组件(HOC)](https://juejin.cn/post/6940422320427106335#heading-55)
 - [「React 进阶」 学好这些 React 设计模式，能让你的 React 项目飞起来](https://juejin.cn/post/7007214462813863950#heading-8)
+- [图解 React 原理](https://7km.top/)

@@ -2,11 +2,6 @@
 
 - [rustup 工具](https://rustup.rs/) 用于管理自己的 Rust 版本
 
-## 参考文档
-
-- [Rust 程序设计语言 中文版](https://www.rustwiki.org.cn/zh-CN/book/appendix-07-nightly-rust.html)
-- [Rust 中文站点](https://rustwiki.org/)
-
 ### rustup 工具使用
 
 ```shell
@@ -196,3 +191,11 @@ fn main() {
 rm -rf ~/.cargo/registry/index/* ~/.cargo/.package-cache
 
 ```
+
+### 参考文档
+
+- [Rust 程序设计语言 中文版](https://www.rustwiki.org.cn/zh-CN/book/appendix-07-nightly-rust.html)
+- [Rust 中文站点](https://rustwiki.org/)
+- [Comprehensive Rust](https://google.github.io/comprehensive-rust/zh-CN/index.html)
+- [Rust 语言圣经](https://course.rs/about-book.html) —— 由 Google 的 Android 团队开发的免费 Rust 课程
+- [Rust 语言实战](https://zh.practice.rs/why-exercise.html)

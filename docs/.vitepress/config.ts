@@ -139,6 +139,7 @@ export default defineConfig({
             { text: "CSS相关", link: "/frontEnd/interview/css" },
             { text: "浏览器相关", link: "/frontEnd/interview/browser" },
             { text: "React相关", link: "/frontEnd/interview/react" },
+            { text: "问题记录", link: "/frontEnd/interview/question" },
           ],
         },
       ],
@@ -214,11 +215,16 @@ export default defineConfig({
           ],
         },
       ],
-      interest: [
+      "/interest": [
         {
           text: "webGL",
           collapsed: false,
           items: [{ text: "基础记录", link: "/interest/webgl/" }],
+        },
+        {
+          text: "SVG",
+          collapsed: false,
+          items: [{ text: "基础记录", link: "/interest/svg/" }],
         },
       ],
     },
