@@ -139,6 +139,7 @@ export default defineConfig({
             { text: "CSS相关", link: "/frontEnd/interview/css" },
             { text: "浏览器相关", link: "/frontEnd/interview/browser" },
             { text: "React相关", link: "/frontEnd/interview/react" },
+            { text: "手写专题", link: "/frontEnd/interview/hand_writing" },
             { text: "问题记录", link: "/frontEnd/interview/question" },
           ],
         },

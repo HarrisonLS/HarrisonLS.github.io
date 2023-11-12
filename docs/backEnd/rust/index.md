@@ -12,6 +12,8 @@ rustc -v
 rustup update
 rustup update 1.72.0 # 指定版本
 
+# 环境删除
+rustup self uninstall
 
 # 编译文件
 rustc xxx.rs # 编译后产生同名可运行文件xxx，利用脚本方式./xxx 运行产物。
@@ -106,7 +108,7 @@ format_args! // described below.
 
 ### 语法基础
 
-label 关键字 —— Rust 可以给循环加上标签
+#### label 关键字 —— Rust 可以给循环加上标签
 
 ```rs
 fn main() {
@@ -183,9 +185,105 @@ fn main() {
 
 ```
 
+#### 结构体的所有权转移
+
+```rs
+// 当解构一个变量时，可以同时使用 move 和引用模式绑定的方式。当这么做时，部分 move 就会发生：变量中一部分的所有权被转移给其它变量，而另一部分我们获取了它的引用。
+// 在这种情况下，原变量将无法再被使用，但是它没有转移所有权的那一部分依然可以使用，也就是之前被引用的那部分
+fn main() {
+    #[derive(Debug)]
+    struct Person {
+        name: String,
+        age: Box<u8>,
+    }
+
+    let person = Person {
+        name: String::from("Alice"),
+        age: Box::new(20),
+    };
+
+    // 通过这种解构式模式匹配，person.name 的所有权被转移给新的变量 `name`
+    // 但是，这里 `age` 变量却是对 person.age 的引用, 这里 ref 的使用相当于: let age = &person.age
+    let Person { name, ref age } = person;
+
+    println!("The person's age is {}", age);
+
+    println!("The person's name is {}", name);
+
+    // Error! 原因是 person 的一部分已经被转移了所有权，因此我们无法再使用它
+    //println!("The person struct is {:?}", person);
+
+    // 虽然 `person` 作为一个整体无法再被使用，但是 `person.age` 依然可以使用
+    println!("The person's age from person struct is {}", person.age);
+}
+
+```
+
 ### 疑难杂症
 
+#### rust 中怎么判断一个变量的类型
+
+```rs
+use std::any::type_name;
+
+fn test_type<T>(_:T) {
+    println!("{:?}" , { type_name::<T>() });
+}
+
+let tup: (i32, f64, u8, bool, &str) = (500, 3.2, 1, false, "Hello World");
+println!("{:?}", tup);
+println!("{} {}", tup.0, tup.4);
+
+// typeof
+test_type(tup); // "(i32, f64, u8, bool, &str)"
+test_type(tup.4); // "&str"
+
+let arr: [i32; 5] = [1, 2, 3, 4, 5];
+let months: [&str; 3] = ["Jan", "Feb", "Mar"];
+test_type(arr); // "[i32; 5]"
+test_type(months); // "[&str; 3]"
+```
+
+#### rust 中如何打印一个结构体变量
+
+```rs
+
+// 填空，让代码工作
+#[derive(Debug)]
+struct User {
+    active: bool,
+    username: String,
+    email: String,
+    sign_in_count: u64,
+}
+fn main() {
+    let u1 = User {
+        email: String::from("someone@example.com"),
+        username: String::from("sunface"),
+        active: true,
+        sign_in_count: 1,
+    };
+
+    let u2 = set_email(u1);
+    dbg!(&u2);
+    println!("{:?}",u2);
+}
+
+fn set_email(u: User) -> User {
+    User {
+        email: String::from("contact@im.dev"),
+        active: false,
+        ..u
+    }
+}
+
+```
+
 #### 添加 dependencies 依赖进行 cargo build 后一直等待
+
+[How-to-build-a-develop-environment-for-rust](https://github.com/chanchancl/How-to-build-a-develop-environment-for-rust)
+
+用 clash 挂代理不代表命令行中的代理生效，可以通过 clash 的控制面板找到“复制终端代理命令”功能，复制后在终端中输入，便可代理翻墙提高网速下载。
 
 ```shell
 rm -rf ~/.cargo/registry/index/* ~/.cargo/.package-cache

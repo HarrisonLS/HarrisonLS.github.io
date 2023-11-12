@@ -352,13 +352,25 @@ console.log("list: ", list);
 
 ## Promise 批处理方法的区别
 
+[Promise 批处理方法解释和实践](https://juejin.cn/post/7018793466452770824?searchId=20231112232703559E3F41F6204CC98B25)
+
 - all
+
+遇到第一个 reject 就结束，故适用于每一个 promise 都成功，或者在其中任何一个 reject 后，立即结束的情况。
 
 ###
 
 - race
+
+返回一个 promise，一旦迭代器中的某个 promise 解决或拒绝，返回的 promise 就会解决或拒绝。多个 promise 是一个竞速的过程。
+
 - any
+
+只要其中的一个 promise 成功，就返回那个已经成功的 promise。
+
 - allSettled
+
+在所有 promise 都 resolve 或者 reject 后，返回一个对象数组，其中每一项是每个 promise 的结果。
 
 ```js
 const promiseReject1 = new Promise((resolve, reject) =>
