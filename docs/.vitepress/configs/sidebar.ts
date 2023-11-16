@@ -1,137 +1,142 @@
-import type { DefaultTheme } from 'vitepress'
+import type { DefaultTheme } from "vitepress";
 
-export const sidebar: DefaultTheme.Config['sidebar'] = {
-  '/fe/': [
+export const sidebar: DefaultTheme.Config["sidebar"] = {
+  "/frontEnd/": [
     {
-      text: 'JavaScript 基础知识',
+      text: "JavaScript 基础知识",
       collapsed: false,
       items: [
-        { text: '数据类型', link: '/fe/javascript/types' },
-        { text: '引用类型的拷贝', link: '/fe/javascript/clone' },
-        { text: '类型转换', link: '/fe/javascript/conversions' },
-        { text: '原型和原型链', link: '/fe/javascript/prototype' },
-        { text: '继承', link: '/fe/javascript/inherit' }
-      ]
+        { text: "数据类型及方法", link: "/frontEnd/javascript/type" },
+        { text: "事件循环", link: "/frontEnd/javascript/eventLoop" },
+        // { text: "引用类型的拷贝", link: "/frontEnd/javascript/clone" },
+        // { text: "类型转换", link: "/frontEnd/javascript/conversions" },
+        { text: "原型和原型链", link: "/frontEnd/javascript/prototype" },
+        // { text: "继承", link: "/frontEnd/javascript/inherit" },
+      ],
     },
     {
-      text: 'ES6 常用知识点',
-      link: '/fe/es6/'
+      text: "设计模式",
+      link: "frontEnd/dm/",
     },
     {
-      text: 'TypeScript',
-      link: '/fe/typescript/base'
-    },
-    {
-      text: 'HTML / CSS',
+      text: "HTML / CSS",
       collapsed: false,
       items: [
-        { text: 'HTML 理论知识点', link: '/fe/html/' },
-        { text: 'CSS 理论知识点', link: '/fe/css/' }
-      ]
+        { text: "HTML 理论知识点", link: "/frontEnd/html/" },
+        { text: "CSS 理论知识点", link: "/frontEnd/css/" },
+      ],
     },
     {
-      text: '浏览器与网络',
+      text: "浏览器/计算机网络",
       collapsed: false,
       items: [
-        { text: '浏览器相关知识点', link: '/fe/browser/' },
-        { text: 'TCP', link: '/fe/network/tcp' },
-        { text: 'HTTP', link: '/fe/network/http' }
-      ]
+        { text: "浏览器 理论知识点", link: "/frontEnd/browser/" },
+        { text: "计算机网络 理论知识点", link: "/frontEnd/network/" },
+      ],
     },
     {
-      text: '概念知识点',
+      text: "TypeScript",
       collapsed: false,
       items: [
-        { text: '模块化', link: '/fe/concept/module' },
-        { text: '前端页面渲染方式', link: '/fe/concept/page-rendering' }
-      ]
+        { text: "TypeScript 理论知识点", link: "/frontEnd/typescript/" },
+        // { text: "CSS 理论知识点", link: "/frontEnd/css/" },
+      ],
     },
     {
-      text: '编程题',
-      link: '/fe/coding/'
-    }
+      text: "面试宝典",
+      collapsed: false,
+      items: [
+        { text: "Javascript相关", link: "/frontEnd/interview/js" },
+        { text: "CSS相关", link: "/frontEnd/interview/css" },
+        { text: "浏览器相关", link: "/frontEnd/interview/browser" },
+        { text: "React相关", link: "/frontEnd/interview/react" },
+        { text: "手写专题", link: "/frontEnd/interview/hand_writing" },
+        { text: "问题记录", link: "/frontEnd/interview/question" },
+      ],
+    },
   ],
-  '/analysis/': [
+  "/backEnd/": [
     {
-      text: '工具库',
-      // collapsed: false,
-      items: [
-        { text: 'only-allow', link: '/analysis/utils/only-allow' },
-        { text: 'clsx', link: '/analysis/utils/clsx' }
-      ]
-    }
+      text: "NestJS",
+      collapsed: false,
+      items: [{ text: "基础知识", link: "backEnd/nest/index" }],
+    },
+    {
+      text: "Rust",
+      collapsed: false,
+      items: [{ text: "基础知识", link: "backEnd/rust/index" }],
+    },
+    {
+      text: "Docker",
+      collapsed: false,
+      items: [{ text: "基础知识", link: "backEnd/docker/index" }],
+    },
   ],
-  '/workflow/': [
+  "/framework": [
     {
-      text: '常用工具/方法',
+      text: "React",
       collapsed: false,
       items: [
-        { text: '工具库整理', link: '/workflow/utils/library' },
-        { text: '常用正则整理', link: '/workflow/utils/regexp' },
-        { text: '常用方法整理', link: '/workflow/utils/function' }
-      ]
+        { text: "基础知识", link: "framework/workflow/react/index" },
+        { text: "hooks", link: "framework/workflow/react/hooks" },
+      ],
     },
     {
-      text: 'CSS 相关',
+      text: "workflow工作流",
       collapsed: false,
       items: [
-        { text: 'CSS 语法', link: '/workflow/css/spec' },
-        { text: 'CSS 奇淫技巧', link: '/workflow/css/tricks' },
-        { text: 'Sass 常用技巧', link: '/workflow/sass/' }
-      ]
+        { text: "Vue", link: "/framework/workflow/vue/" },
+        { text: "IceJS", link: "/framework/workflow/ice/" },
+      ],
     },
     {
-      text: 'Vue 相关',
-      link: '/workflow/vue/'
-    },
-    {
-      text: 'Node 相关',
-      // collapsed: false,
-      items: [{ text: 'npm 常用命令', link: '/workflow/node/npm' }]
-    },
-    {
-      text: '终端相关',
+      text: "状态管理",
       collapsed: false,
       items: [
-        { text: 'Zsh 配置', link: '/workflow/terminal/zsh' },
-        { text: '命令行工具', link: '/workflow/terminal/toolkit' },
-        { text: 'Shell 命令', link: '/workflow/terminal/shell' }
-      ]
+        { text: "Redux", link: "/framework/state/redux/" },
+        // { text: "Mobx", link: "/framework/state/mobx/" },
+      ],
     },
-    {
-      text: 'Git 相关',
-      collapsed: false,
-      items: [
-        { text: 'Git 相关技巧', link: '/workflow/git/' },
-        { text: 'Git 命令清单', link: '/workflow/git/command' }
-      ]
-    }
   ],
-  '/efficiency/': [
+  "/skill": [
     {
-      text: '软件推荐与配置',
-      // collapsed: false,
+      text: "工具使用",
+      collapsed: false,
       items: [
-        { text: '多平台软件', link: '/efficiency/software/cross-platform' },
-        { text: 'Mac 平台', link: '/efficiency/software/mac' },
-        { text: 'Windows 平台', link: '/efficiency/software/windows' },
-        { text: '浏览器设置与扩展', link: '/efficiency/software/browser' },
-        { text: 'Visual Studio Code 配置', link: '/efficiency/software/vscode' },
-        { text: 'WebStorm 配置', link: '/efficiency/software/webstorm' }
-      ]
+        { text: "Git", link: "/skill/git/" },
+        { text: "Umi", link: "/skill/umi/" },
+      ],
     },
-    { text: '在线工具', link: '/efficiency/online-tools' },
-    { text: '书签脚本', link: '/efficiency/bookmark-scripts' }
-  ],
-  '/pit/': [
     {
-      text: '踩坑记录',
-      // collapsed: false,
+      text: "包管理",
+      collapsed: false,
       items: [
-        { text: 'npm 踩坑记录', link: '/pit/npm' },
-        { text: 'PC 踩坑记录', link: '/pit/pc' },
-        { text: 'H5 踩坑记录', link: '/pit/h5' }
-      ]
-    }
-  ]
-}
+        { text: "Npm", link: "/skill/npm/" },
+        { text: "Pnpm", link: "/skill/pnpm/" },
+        { text: "Yarn", link: "/skill/yarn/" },
+      ],
+    },
+  ],
+  "/algorithm": [
+    {
+      text: "算法题目记录",
+      collapsed: false,
+      items: [
+        { text: "LeetCode算法题", link: "/algorithm/leetcode/all" },
+        // { text: 'huawei牛客', link: '/algorithm/huawei/niuke' },
+      ],
+    },
+  ],
+  "/interest": [
+    {
+      text: "webGL",
+      collapsed: false,
+      items: [{ text: "基础记录", link: "/interest/webgl/" }],
+    },
+    {
+      text: "SVG",
+      collapsed: false,
+      items: [{ text: "基础记录", link: "/interest/svg/" }],
+    },
+  ],
+};

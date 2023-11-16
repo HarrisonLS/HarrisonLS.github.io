@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { inject, Ref, computed } from 'vue'
-import { useRoute } from 'vitepress'
+import { inject, Ref, computed } from "vue";
+import { useRoute } from "vitepress";
 
-const DEV = inject('DEV') as Ref<boolean>
-const route = useRoute()
+const DEV = inject("DEV") as Ref<boolean>;
+const route = useRoute();
 
-const pageId = computed(() => route.path.replace('/mm-notes', ''))
+const pageId = computed(() => route.path.replace("/mm-notes", ""));
+const yearInfo = new Date().getFullYear();
 </script>
 
 <template>
@@ -17,7 +18,7 @@ const pageId = computed(() => route.path.replace('/mm-notes', ''))
       title="当前页面累计访问数"
       onerror="this.style.display='none'"
     />
-    Copyright © 2022-present HarrisonLin
+    <span>{{ `Copyright © ${yearInfo}-present HarrisonLin` }}</span>
   </div>
 </template>
 

@@ -1,88 +1,83 @@
-import type { DefaultTheme } from 'vitepress'
+import type { DefaultTheme } from "vitepress";
 
-export const nav: DefaultTheme.Config['nav'] = [
-  { text: '导航', link: '/nav', activeMatch: '^/nav' },
+export const nav: DefaultTheme.Config["nav"] = [
+  { text: "首页", link: "/" },
+  { text: "导航", link: "/nav", activeMatch: "^/nav" },
   {
-    text: '前端物语',
+    text: "前端",
     items: [
-      { text: 'JavaScript 基础知识', link: '/fe/javascript/types' },
-      { text: 'ES6 常用知识', link: '/fe/es6/' },
-      { text: 'TypeScript 基础知识', link: '/fe/typescript/base' },
-      { text: '浏览器相关知识', link: '/fe/browser/' }
+      { text: "JavaScript 基础知识", link: "/frontEnd/javascript/type" },
+      { text: "TypeScript 基础知识", link: "/frontEnd/typescript/" },
+      { text: "CSS 理论知识", link: "/frontEnd/css/" },
+      { text: "ES6 常用知识", link: "/frontEnd/es6/" },
+      { text: "设计模式", link: "/frontEnd/dm/" },
+      { text: "浏览器 基础知识", link: "/frontEnd/browser/" },
+      { text: "计算机网络 基础知识", link: "/frontEnd/network/" },
+      { text: "面试宝典", link: "/frontEnd/interview/js" },
     ],
-    activeMatch: '^/fe'
-  },
-  { text: '源码阅读', link: '/analysis/utils/only-allow', activeMatch: '^/analysis' },
-  {
-    text: 'Workflow',
-    items: [
-      {
-        text: '常用工具/方法',
-        items: [
-          { text: '工具库整理', link: '/workflow/utils/library' },
-          { text: '常用正则整理', link: '/workflow/utils/regexp' },
-          { text: '常用方法整理', link: '/workflow/utils/function' }
-        ]
-      },
-      {
-        text: 'CSS 相关',
-        items: [
-          { text: 'CSS 语法', link: '/workflow/css/spec' },
-          { text: 'CSS 奇淫技巧', link: '/workflow/css/tricks' },
-          { text: 'Sass 常用技巧', link: '/workflow/sass/' }
-        ]
-      },
-      {
-        text: 'Vue 小技巧',
-        link: '/workflow/vue/'
-      },
-      { text: 'npm 常用命令', link: '/workflow/node/npm' },
-      // {
-      //   text: '终端相关',
-      //   items: [
-      { text: 'Zsh 配置', link: '/workflow/terminal/zsh' },
-      { text: '命令行工具', link: '/workflow/terminal/toolkit' },
-      { text: 'Shell 命令', link: '/workflow/terminal/shell' },
-      //   ]
-      // },
-      { text: 'Git 相关技巧', link: '/workflow/git/' },
-      { text: 'Git 命令清单', link: '/workflow/git/command' }
-    ],
-    activeMatch: '^/workflow'
-  },
-  { text: '踩坑记录', link: '/pit/npm', activeMatch: '^/pit' },
-  {
-    text: '提效工具',
-    items: [
-      {
-        text: '软件推荐与配置',
-        items: [
-          { text: '多平台软件', link: '/efficiency/software/cross-platform' },
-          { text: 'Mac 平台', link: '/efficiency/software/mac' },
-          { text: 'Windows 平台', link: '/efficiency/software/windows' },
-          { text: '浏览器设置与扩展', link: '/efficiency/software/browser' },
-          { text: 'Visual Studio Code 配置', link: '/efficiency/software/vscode' },
-          { text: 'WebStorm 配置', link: '/efficiency/software/webstorm' }
-        ]
-      },
-      { text: '在线工具', link: '/efficiency/online-tools' },
-      { text: '书签脚本', link: '/efficiency/bookmark-scripts' }
-    ],
-    activeMatch: '^/efficiency'
+    activeMatch: "^/frontEnd",
   },
   {
-    text: '茂茂',
+    text: "后端",
     items: [
-      { text: '个人主页', link: 'https://fe-mm.com' },
+      { text: "NestJS", link: "/backEnd/nest/" },
+      { text: "Docker", link: "/backEnd/docker/" },
+      { text: "Rust", link: "/backEnd/rust/" },
+    ],
+  },
+  {
+    text: "框架使用",
+    items: [
       {
-        text: '日常笔记',
-        link: 'https://github.com/maomao1996/daily-notes'
+        text: "工作流",
+        items: [
+          { text: "React", link: "/framework/workflow/react/" },
+          { text: "Vue", link: "/framework/workflow/vue/" },
+          { text: "NextJS", link: "/framework/workflow/nextjs/" },
+          { text: "Taro", link: "/framework/workflow/taro/" },
+          { text: "IceJS", link: "/framework/workflow/ice/" },
+        ],
       },
-      { text: 'mmPlayer', link: 'https://netease-music.fe-mm.com' },
       {
-        text: '油猴脚本',
-        link: 'https://github.com/maomao1996/tampermonkey-scripts'
-      }
-    ]
-  }
-]
+        text: "状态管理",
+        items: [
+          { text: "Redux", link: "/framework/state/redux/" },
+          // { text: 'React', link: '/framework/react' }
+        ],
+      },
+    ],
+  },
+  {
+    text: "工具&技巧",
+    items: [
+      {
+        text: "提效工具",
+        items: [
+          { text: "Git", link: "/skill/git/" },
+          { text: "包管理", link: "/skill/npm/" },
+          { text: "umi", link: "/skill/umi/" },
+        ],
+      },
+      {
+        text: "环境配置与设置",
+        items: [
+          // { text: "Git", link: "/skill/react" },
+          // { text: "Npm", link: "/skill/react" },
+          // { text: "Yarn", link: "/skill/react" },
+          // { text: "Pnpm", link: "/skill/react" },
+        ],
+      },
+    ],
+  },
+  {
+    text: "算法",
+    items: [
+      { text: "LeetCode记录", link: "/algorithm/leetcode/all" },
+      // { text: 'huawei', link: '/algorithm/huawei/niuke' },
+    ],
+  },
+  {
+    text: "兴趣拓展",
+    items: [{ text: "web GL记录", link: "/interest/webgl/" }],
+  },
+];
