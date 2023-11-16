@@ -1,0 +1,40 @@
+import{_ as s,o as n,c as a,V as l}from"./chunks/framework.c0fcdec1.js";const F=JSON.parse('{"title":"飞冰 IceJS 使用","description":"","frontmatter":{},"headers":[],"relativePath":"framework/workflow/ice/index.md","filePath":"framework/workflow/ice/index.md"}'),p={name:"framework/workflow/ice/index.md"},o=l(`<h1 id="飞冰-icejs-使用" tabindex="-1">飞冰 IceJS 使用 <a class="header-anchor" href="#飞冰-icejs-使用" aria-label="Permalink to &quot;飞冰 IceJS 使用&quot;">​</a></h1><p><a href="https://v2.ice.work/" target="_blank" rel="noreferrer">v2</a></p><h2 id="请求方式" tabindex="-1">请求方式 <a class="header-anchor" href="#请求方式" aria-label="Permalink to &quot;请求方式&quot;">​</a></h2><ul><li>request 基于 <a href="https://www.axios-http.cn/docs/intro" target="_blank" rel="noreferrer">axios</a></li><li>useRequest 基于 <a href="https://ahooks.js.org/zh-CN/hooks/use-request/index" target="_blank" rel="noreferrer">ahooks</a></li></ul><h2 id="使用-antd4-定制主题" tabindex="-1">使用 antd4 定制主题 <a class="header-anchor" href="#使用-antd4-定制主题" aria-label="Permalink to &quot;使用 antd4 定制主题&quot;">​</a></h2><p><a href="https://v2.ice.work/docs/plugin/list/antd" target="_blank" rel="noreferrer">指导文档</a></p><ul><li>安装 ice 插件 build-plugin-antd</li><li>使用 global.css 改为 global.less</li><li>在 global.less 中全量引入 antd less 文件 <ul><li>@import &#39;antd/dist/antd.less&#39;;</li></ul></li></ul><h2 id="目录" tabindex="-1">目录 <a class="header-anchor" href="#目录" aria-label="Permalink to &quot;目录&quot;">​</a></h2><div class="language-md"><button title="Copy Code" class="copy"></button><span class="lang">md</span><pre class="shiki material-theme-palenight"><code><span class="line"><span style="color:#A6ACCD;">├── build/                         # 构建产物</span></span>
+<span class="line"><span style="color:#A6ACCD;">├── mock/                          # 本地模拟数据</span></span>
+<span class="line"><span style="color:#A6ACCD;">│   ├── index.</span><span style="color:#89DDFF;">[</span><span style="color:#C3E88D;">j,t</span><span style="color:#89DDFF;">]</span><span style="color:#A6ACCD;">s</span></span>
+<span class="line"><span style="color:#A6ACCD;">├── public/</span></span>
+<span class="line"><span style="color:#A6ACCD;">│   ├── index.html                 # 应用入口 HTML</span></span>
+<span class="line"><span style="color:#A6ACCD;">│   └── favicon.png                # Favicon</span></span>
+<span class="line"><span style="color:#A6ACCD;">├── src/                           # 源码路径</span></span>
+<span class="line"><span style="color:#A6ACCD;">│   ├── components/                # 自定义业务组件</span></span>
+<span class="line"><span style="color:#A6ACCD;">│   │   └── Guide/</span></span>
+<span class="line"><span style="color:#A6ACCD;">│   │       ├── index.</span><span style="color:#89DDFF;">[</span><span style="color:#C3E88D;">j,t</span><span style="color:#89DDFF;">]</span><span style="color:#A6ACCD;">sx</span></span>
+<span class="line"><span style="color:#A6ACCD;">│   │       ├── index.module.scss</span></span>
+<span class="line"><span style="color:#A6ACCD;">│   ├── layouts/                   # 布局组件</span></span>
+<span class="line"><span style="color:#A6ACCD;">│   │   └── BasicLayout/</span></span>
+<span class="line"><span style="color:#A6ACCD;">│   │       ├── index.</span><span style="color:#89DDFF;">[</span><span style="color:#C3E88D;">j,t</span><span style="color:#89DDFF;">]</span><span style="color:#A6ACCD;">sx</span></span>
+<span class="line"><span style="color:#A6ACCD;">│   │       └── index.module.scss</span></span>
+<span class="line"><span style="color:#A6ACCD;">│   ├── pages/                     # 页面</span></span>
+<span class="line"><span style="color:#A6ACCD;">│   │   └── Home/                  # home 页面，约定路由转成小写</span></span>
+<span class="line"><span style="color:#A6ACCD;">│   │       ├── components/        # 页面级自定义业务组件</span></span>
+<span class="line"><span style="color:#A6ACCD;">│   │       ├── models.</span><span style="color:#89DDFF;">[</span><span style="color:#C3E88D;">j,t</span><span style="color:#89DDFF;">]</span><span style="color:#A6ACCD;">sx     # 页面级数据状态</span></span>
+<span class="line"><span style="color:#A6ACCD;">│   │       ├── index.</span><span style="color:#89DDFF;">[</span><span style="color:#C3E88D;">j,t</span><span style="color:#89DDFF;">]</span><span style="color:#A6ACCD;">sx      # 页面入口</span></span>
+<span class="line"><span style="color:#A6ACCD;">│   │       └── index.module.scss  # 页面样式文件</span></span>
+<span class="line"><span style="color:#A6ACCD;">│   ├── configs/                   # </span><span style="color:#89DDFF;">[</span><span style="color:#C3E88D;">可选</span><span style="color:#89DDFF;">]</span><span style="color:#A6ACCD;"> 配置文件</span></span>
+<span class="line"><span style="color:#A6ACCD;">│   │   └── menu.</span><span style="color:#89DDFF;">[</span><span style="color:#C3E88D;">j,t</span><span style="color:#89DDFF;">]</span><span style="color:#A6ACCD;">s            # </span><span style="color:#89DDFF;">[</span><span style="color:#C3E88D;">可选</span><span style="color:#89DDFF;">]</span><span style="color:#A6ACCD;"> 菜单配置</span></span>
+<span class="line"><span style="color:#A6ACCD;">│   ├── models/                    # </span><span style="color:#89DDFF;">[</span><span style="color:#C3E88D;">可选</span><span style="color:#89DDFF;">]</span><span style="color:#A6ACCD;"> 应用级数据状态</span></span>
+<span class="line"><span style="color:#A6ACCD;">│   │   └── user.</span><span style="color:#89DDFF;">[</span><span style="color:#C3E88D;">j,t</span><span style="color:#89DDFF;">]</span><span style="color:#A6ACCD;">s</span></span>
+<span class="line"><span style="color:#A6ACCD;">│   ├── utils/                     # </span><span style="color:#89DDFF;">[</span><span style="color:#C3E88D;">可选</span><span style="color:#89DDFF;">]</span><span style="color:#A6ACCD;"> 工具库</span></span>
+<span class="line"><span style="color:#A6ACCD;">│   ├── global.scss                # 全局样式</span></span>
+<span class="line"><span style="color:#A6ACCD;">│   ├── routes.</span><span style="color:#89DDFF;">[</span><span style="color:#C3E88D;">j,t</span><span style="color:#89DDFF;">]</span><span style="color:#A6ACCD;">s              # 路由配置</span></span>
+<span class="line"><span style="color:#A6ACCD;">│   └── app.</span><span style="color:#89DDFF;">[</span><span style="color:#C3E88D;">j,t</span><span style="color:#89DDFF;">]</span><span style="color:#A6ACCD;">s</span><span style="color:#89DDFF;">[</span><span style="color:#C3E88D;">x</span><span style="color:#89DDFF;">]</span><span style="color:#A6ACCD;">              # 应用入口脚本</span></span>
+<span class="line"><span style="color:#A6ACCD;">├── build.json                     # 工程配置</span></span>
+<span class="line"><span style="color:#A6ACCD;">├── README.md</span></span>
+<span class="line"><span style="color:#A6ACCD;">├── package.json</span></span>
+<span class="line"><span style="color:#A6ACCD;">├── .editorconfig</span></span>
+<span class="line"><span style="color:#A6ACCD;">├── .eslintignore</span></span>
+<span class="line"><span style="color:#A6ACCD;">├── .eslintrc.</span><span style="color:#89DDFF;">[</span><span style="color:#C3E88D;">j,t</span><span style="color:#89DDFF;">]</span><span style="color:#A6ACCD;">s</span></span>
+<span class="line"><span style="color:#A6ACCD;">├── .gitignore</span></span>
+<span class="line"><span style="color:#A6ACCD;">├── .stylelintignore</span></span>
+<span class="line"><span style="color:#A6ACCD;">├── .stylelintrc.</span><span style="color:#89DDFF;">[</span><span style="color:#C3E88D;">j,t</span><span style="color:#89DDFF;">]</span><span style="color:#A6ACCD;">s</span></span>
+<span class="line"><span style="color:#A6ACCD;">├── .gitignore</span></span>
+<span class="line"><span style="color:#A6ACCD;">└── </span><span style="color:#89DDFF;">[</span><span style="color:#C3E88D;">j,t</span><span style="color:#89DDFF;">]</span><span style="color:#A6ACCD;">sconfig.json</span></span></code></pre></div>`,9),e=[o];function t(c,r,D,i,C,A){return n(),a("div",null,e)}const d=s(p,[["render",t]]);export{F as __pageData,d as default};
