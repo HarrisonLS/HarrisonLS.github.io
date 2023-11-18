@@ -4,6 +4,7 @@ export const algolia: DefaultTheme.AlgoliaSearchOptions = {
   appId: "OBU6DGENNB",
   apiKey: "c44b9402841059e6b44f369af69e4c21",
   indexName: "wmsh",
+
   placeholder: "搜索",
   translations: {
     button: {

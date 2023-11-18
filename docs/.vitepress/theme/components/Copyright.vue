@@ -18,7 +18,7 @@ const yearInfo = new Date().getFullYear();
       title="当前页面累计访问数"
       onerror="this.style.display='none'"
     />
-    <span>{{ `Copyright © ${yearInfo}-present HarrisonLin` }}</span>
+    <span>{{ `Copyright © 2022-${yearInfo} HarrisonLin` }}</span>
   </div>
 </template>
 

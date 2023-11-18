@@ -116,6 +116,15 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
         { text: "Yarn", link: "/skill/yarn/" },
       ],
     },
+    {
+      text: "环境配置与软件安装",
+      collapsed: false,
+      items: [
+        { text: "VS Code 插件与配置", link: "/skill/vscode/" },
+        { text: "Mac OS 平台", link: "/skill/mac/" },
+        // { text: "Mac OS 平台", link: "/skill/mac/" }
+      ],
+    },
   ],
   "/algorithm": [
     {

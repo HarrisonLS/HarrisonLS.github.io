@@ -54,14 +54,15 @@ export const nav: DefaultTheme.Config["nav"] = [
         text: "提效工具",
         items: [
           { text: "Git", link: "/skill/git/" },
-          { text: "包管理", link: "/skill/npm/" },
           { text: "umi", link: "/skill/umi/" },
+          { text: "包管理", link: "/skill/npm/" },
         ],
       },
       {
-        text: "环境配置与设置",
+        text: "环境配置与软件安装",
         items: [
-          // { text: "Git", link: "/skill/react" },
+          { text: "VS Code 插件与配置", link: "/skill/vscode/" },
+          { text: "Mac OS 平台", link: "/skill/mac/" },
           // { text: "Npm", link: "/skill/react" },
           // { text: "Yarn", link: "/skill/react" },
           // { text: "Pnpm", link: "/skill/react" },
