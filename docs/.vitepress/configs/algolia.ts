@@ -1,10 +1,15 @@
 import type { DefaultTheme } from "vitepress";
+// export const algolia: DefaultTheme.AlgoliaSearchOptions = {
 
-export const algolia: DefaultTheme.AlgoliaSearchOptions = {
-  appId: "OBU6DGENNB",
-  apiKey: "c44b9402841059e6b44f369af69e4c21",
-  indexName: "wmsh",
-
+export const algolia = {
+  appId: "Z2NSQYVSIY",
+  apiKey: "b717e087365567b44db09d4f169e14b2",
+  indexName: "harrisonlsio",
+  insights: true,
+  // container: "docSearch",
+  searchParameters: {
+    facetFilters: ["language:cn", "version:1.0.0"],
+  },
   placeholder: "搜索",
   translations: {
     button: {
