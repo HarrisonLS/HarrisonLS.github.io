@@ -3,7 +3,7 @@ import type { DefaultTheme } from "vitepress";
 
 export const algolia = {
   appId: "Z2NSQYVSIY",
-  apiKey: "b717e087365567b44db09d4f169e14b2",
+  apiKey: "e65eb959dd42f2cf9b580163511b595c",
   indexName: "harrisonlsio",
   insights: true,
   // container: "docSearch",

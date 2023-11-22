@@ -20,6 +20,7 @@ export default defineConfig({
     lineNumbers: true,
   },
   lang: "zh-CN",
+  
 
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
