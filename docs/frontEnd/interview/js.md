@@ -560,6 +560,153 @@ let outputArr = flatten(givenArr);
 console.log(outputArr); // [1,2,2,3,4,5,5,6,7,8,9,11,12,12,13,14,10]
 ```
 
+### 数组字符串转树形结构
+
+```text
+有如下路径，转换成不重复的树形结构数据
+[
+  "/diskC/folderA/test_file",
+  "/diskC/folderA/sub_folderX/file1",
+  "/diskKH/folderA/test_file",
+  "/diskC/folderB/folderC/fileX",
+];
+
+
+[
+ {
+  "name": "diskC",
+  "children": [
+   {
+    "name": "folderA",
+    "children": [
+     {
+      "name": "test_file",
+      "children": []
+     },
+     {
+      "name": "sub_folderX",
+      "children": [
+       {
+        "name": "file1",
+        "children": []
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "folderB",
+    "children": [
+     {
+      "name": "folderC",
+      "children": [
+       {
+        "name": "fileX",
+        "children": []
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "name": "diskKH",
+  "children": [
+   {
+    "name": "folderA",
+    "children": [
+     {
+      "name": "test_file",
+      "children": []
+     }
+    ]
+   }
+  ]
+ }
+
+
+```
+
+```js
+// chatgpt版本
+function buildTree(filePaths) {
+  let root = { name: "", children: [] };
+
+  for (let path of filePaths) {
+    let pathElements = path.split("/").filter((element) => element !== "");
+    console.log("pathElements: ", pathElements);
+    let currentNode = root;
+    console.log("currentNode: ", currentNode);
+
+    for (let element of pathElements) {
+      let existingNode = currentNode.children.find(
+        (node) => node.name === element
+      );
+      console.log("existingNode: ", existingNode);
+
+      if (existingNode) {
+        currentNode = existingNode;
+      } else {
+        let newNode = { name: element, children: [] };
+        currentNode.children.push(newNode);
+        currentNode = newNode;
+      }
+    }
+  }
+
+  return root.children;
+}
+
+let filePaths = [
+  "/diskC/folderA/test_file",
+  "/diskC/folderA/sub_folderX/file1",
+  "/diskKH/folderA/test_file",
+  "/diskC/folderB/folderC/fileX",
+];
+
+let tree = buildTree(filePaths);
+// console.log(JSON.stringify(tree, null, 1));
+```
+
+```js
+// 自己思路版本
+const filePath = [
+  "/diskC/folderA/test_file",
+  "/diskC/folderA/sub_folderX/file1",
+  "/diskKH/folderA/test_file",
+  "/diskC/folderB/folderC/fileX",
+];
+
+const buildFilePath = (str) => {
+  let temp = str.split("/");
+  temp.shift();
+  return temp;
+};
+
+const filePathArr = filePath.forEach((path) => {
+  let pathArr = buildFilePath(path);
+  console.log("pathArr: ", pathArr);
+});
+
+const buildFilePathTree = () => {
+  const result = [];
+  const indexNameArr = [];
+  filePathArr.forEach((item) => {
+    if (!indexNameArr.includes(item)) {
+      indexNameArr.push(item);
+    } else {
+      result.push({
+        Name: item,
+      });
+    }
+  });
+  return result;
+};
+
+console.log("res", buildFilePathTree());
+```
+
 ## 相关文章
 
 [高频前端面试题汇总之 JavaScript 篇（上）](https://juejin.cn/post/6940945178899251230)
