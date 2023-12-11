@@ -10,6 +10,7 @@ import XMindEmbedViewer from "./components/XmindViewer.vue";
 
 import "./styles/index.scss";
 // import './styles/var.scss'
+import "./styles/fonts.scss";
 
 if (typeof window !== "undefined") {
   /* 注销 PWA 服务 */

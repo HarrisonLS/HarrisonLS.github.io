@@ -39,7 +39,7 @@ content（元素内容） + padding（内边距） + border（边框） + margin
 
 - flex-direction：决定主轴的方向（即子 item 的排列方法）flex-direction: row | row-reverse | column | column-reverse;
 - flex-wrap：决定换行规则 flex-wrap: nowrap | wrap | wrap-reverse;
-- flex-flow： .box { flex-flow: || ; }
+<!-- - flex-flow： .box { flex-flow:  ; } -->
 - justify-content：对其方式，水平主轴对齐方式
 - align-items：对齐方式，竖直轴线方向
 - align-content

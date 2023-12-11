@@ -6,14 +6,28 @@ export const nav: DefaultTheme.Config["nav"] = [
   {
     text: "前端",
     items: [
-      { text: "JavaScript 基础知识", link: "/frontEnd/javascript/type" },
-      { text: "TypeScript 基础知识", link: "/frontEnd/typescript/" },
-      { text: "CSS 理论知识", link: "/frontEnd/css/" },
-      { text: "ES6 常用知识", link: "/frontEnd/es6/" },
-      { text: "设计模式", link: "/frontEnd/dm/" },
-      { text: "浏览器 基础知识", link: "/frontEnd/browser/" },
-      { text: "计算机网络 基础知识", link: "/frontEnd/network/" },
-      { text: "面试宝典", link: "/frontEnd/interview/js" },
+      {
+        text: "基础知识",
+        items: [
+          { text: "JavaScript 基础知识", link: "/frontEnd/javascript/type" },
+          { text: "TypeScript 基础知识", link: "/frontEnd/typescript/" },
+          { text: "CSS 理论知识", link: "/frontEnd/css/" },
+          { text: "ES6 常用知识", link: "/frontEnd/es6/" },
+          { text: "设计模式", link: "/frontEnd/dm/" },
+          { text: "浏览器 基础知识", link: "/frontEnd/browser/" },
+          { text: "计算机网络 基础知识", link: "/frontEnd/network/" },
+          { text: "面试宝典", link: "/frontEnd/interview/js" },
+        ],
+      },
+      {
+        text: "概念与业务应用",
+        items: [
+          {
+            text: "微前端",
+            link: "/frontEnd/microFE/",
+          },
+        ],
+      },
     ],
     activeMatch: "^/frontEnd",
   },

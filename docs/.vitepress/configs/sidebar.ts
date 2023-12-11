@@ -54,6 +54,11 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
         { text: "问题记录", link: "/frontEnd/interview/question" },
       ],
     },
+    {
+      text: "概念与业务应用",
+      collapsed: false,
+      items: [{ text: "微前端", link: "/frontEnd/microFE/" }],
+    },
   ],
   "/backEnd/": [
     {
