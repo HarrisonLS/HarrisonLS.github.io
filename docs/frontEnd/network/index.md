@@ -111,6 +111,53 @@ HTTPS 并不是一个新的协议，它只是在 HTTP 和 TCP 的传输中建立
 
 ## XSS 攻击
 
+## head 请求和 options 请求
+
+|          | HEAD 请求                                    | OPTIONS 请求                                |
+| -------- | -------------------------------------------- | ------------------------------------------- |
+| 用途     | 获取资源的元数据，不返回实际内容             | 获取服务器支持的通信选项，不返回实际内容    |
+| 主要场景 | 获取资源信息、检查资源是否存在、是否被修改过 | CORS 中的预检请求，了解服务器支持的功能选项 |
+| 返回结果 | 返回资源的首部信息                           | 返回服务器支持的通信选项                    |
+| 示例     | 获取文件大小、类型、修改日期等元数据         | 了解服务器支持的请求方法、头部信息等        |
+
+```js
+// 发送HEAD请求示例
+fetch("https://example.com/resource", {
+  method: "HEAD",
+})
+  .then((response) => {
+    // 处理响应，只获取资源的首部信息
+    console.log("HEAD请求的响应首部:", response.headers);
+  })
+  .catch((error) => {
+    console.error("发生错误:", error);
+  });
+
+// 发送OPTIONS请求示例
+fetch("https://example.com/resource", {
+  method: "OPTIONS",
+})
+  .then((response) => {
+    // 处理响应，获取服务器支持的通信选项
+    console.log("OPTIONS请求的响应:", response);
+    console.log(
+      "支持的请求方法:",
+      response.headers.get("access-control-allow-methods")
+    );
+    console.log(
+      "支持的头部信息:",
+      response.headers.get("access-control-allow-headers")
+    );
+  })
+  .catch((error) => {
+    console.error("发生错误:", error);
+  });
+```
+
+![options请求](/image/network/httpOptionsRequest.png)
+
+关联问题：[post 为什么会发两次请求](https://mp.weixin.qq.com/s/X1NQ0TnxQd561rVshR7BSA)
+
 ## 相关文章
 
 [面试知识点复盘【计算机网络】篇](https://juejin.cn/post/7166870049066582053#heading-53)

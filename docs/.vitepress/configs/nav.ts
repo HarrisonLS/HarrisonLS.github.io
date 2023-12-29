@@ -26,6 +26,10 @@ export const nav: DefaultTheme.Config["nav"] = [
             text: "微前端",
             link: "/frontEnd/microFE/",
           },
+          {
+            text: "常用业务应用",
+            link: "/frontEnd/application/",
+          },
         ],
       },
     ],
