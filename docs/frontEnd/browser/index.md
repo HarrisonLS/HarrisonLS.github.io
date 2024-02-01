@@ -110,6 +110,13 @@ export const http = (params) => {
 };
 ```
 
+## 实用 API    
+
+### window.navigator.getBattery()
+
+获取「电脑的充电信息」，电量变化会触发「chargingchange 事件」
+
+![获取设备电量](/image/browser/getBattery.jpg)
 
 ## 相关文章
 

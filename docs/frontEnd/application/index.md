@@ -82,3 +82,57 @@ export default App;
 ```
 
 ## 功能函数
+
+### 数组菜单转换为 antd 树级菜单结构
+
+```txt
+[
+    {
+        "id": 1,
+        "menuName": "系统总览",
+        "parentId": 0,
+        "createTime": "2023-10-10T16:32:05",
+        "updateTime": "2023-10-10T16:32:05"
+    },
+    {
+        "id": 2,
+        "menuName": "案件管理",
+        "parentId": 0,
+        "createTime": "2023-10-10T16:32:26",
+        "updateTime": "2023-10-10T16:32:26"
+    },
+    {
+        "id": 3,
+        "menuName": "系统管理",
+        "parentId": 0,
+        "createTime": "2023-10-10T16:32:48",
+        "updateTime": "2023-10-10T16:32:48"
+    },
+]
+```
+
+```js
+const convertToTree = (menuList) => {
+  let map = {};
+  let tree = [];
+
+  menuList.forEach(function (item) {
+    map[item.id] = {
+      key: item.id,
+      title: item.menuName,
+      children: [],
+    };
+  });
+
+  menuList.forEach(function (item) {
+    if (item.parentId !== 0) {
+      if (map[item.parentId]) {
+        map[item.parentId].children.push(map[item.id]);
+      }
+    } else {
+      tree.push(map[item.id]);
+    }
+  });
+  return tree;
+};
+```

@@ -79,6 +79,14 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
       collapsed: false,
       items: [{ text: "基础知识", link: "backEnd/docker/index" }],
     },
+    {
+      text: "操作系统",
+      collapsed: false,
+      items: [
+        { text: "基础知识", link: "backEnd/os/index" },
+        { text: "问题解决", link: "backEnd/os/solved" },
+      ],
+    },
   ],
   "/framework": [
     {
@@ -95,6 +103,7 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
       items: [
         { text: "Vue", link: "/framework/workflow/vue/" },
         { text: "IceJS", link: "/framework/workflow/ice/" },
+        { text: "Umi", link: "/framework/workflow/umi/" },
       ],
     },
     {
@@ -112,7 +121,8 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
       collapsed: false,
       items: [
         { text: "Git", link: "/skill/git/" },
-        { text: "Umi", link: "/skill/umi/" },
+        { text: "nvm", link: "/skill/nvm/" },
+        { text: "在线实用工具", link: "/skill/git/" },
       ],
     },
     {
@@ -130,6 +140,7 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
       items: [
         { text: "VS Code 插件与配置", link: "/skill/vscode/" },
         { text: "Mac OS 平台", link: "/skill/mac/" },
+        { text: "package.json依赖配置", link: "/skill/package/" },
         // { text: "Mac OS 平台", link: "/skill/mac/" }
       ],
     },

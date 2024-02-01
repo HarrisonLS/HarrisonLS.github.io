@@ -41,6 +41,7 @@ export const nav: DefaultTheme.Config["nav"] = [
       { text: "NestJS", link: "/backEnd/nest/" },
       { text: "Docker", link: "/backEnd/docker/" },
       { text: "Rust", link: "/backEnd/rust/" },
+      { text: "操作系统", link: "/backEnd/os/solved" },
     ],
   },
   {
@@ -54,6 +55,7 @@ export const nav: DefaultTheme.Config["nav"] = [
           { text: "NextJS", link: "/framework/workflow/nextjs/" },
           { text: "Taro", link: "/framework/workflow/taro/" },
           { text: "IceJS", link: "/framework/workflow/ice/" },
+          { text: "umi", link: "/framework/workflow/umi/" },
         ],
       },
       {
@@ -66,14 +68,15 @@ export const nav: DefaultTheme.Config["nav"] = [
     ],
   },
   {
-    text: "工具&技巧",
+    text: "工具&配置",
     items: [
       {
-        text: "提效工具",
+        text: "实用工具",
         items: [
           { text: "Git", link: "/skill/git/" },
-          { text: "umi", link: "/skill/umi/" },
           { text: "包管理", link: "/skill/npm/" },
+          { text: "nvm", link: "/skill/nvm/" },
+          { text: "在线实用工具", link: "/skill/onlineTools/" },
         ],
       },
       {
@@ -81,9 +84,7 @@ export const nav: DefaultTheme.Config["nav"] = [
         items: [
           { text: "VS Code 插件与配置", link: "/skill/vscode/" },
           { text: "Mac OS 平台", link: "/skill/mac/" },
-          // { text: "Npm", link: "/skill/react" },
-          // { text: "Yarn", link: "/skill/react" },
-          // { text: "Pnpm", link: "/skill/react" },
+          { text: "package.json依赖配置", link: "/skill/package/" },
         ],
       },
     ],
