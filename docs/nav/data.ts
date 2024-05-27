@@ -540,6 +540,17 @@ export const NAV_DATA: NavData[] = [
     ],
   },
   {
+    title: "LLM",
+    items: [
+      {
+        title: "LangChain.js中文网",
+        icon: "https://js.langchain.com.cn/img/favicon.ico",
+        desc: "LangChain中文网 500页超详细中文文档教程，助力LLM/chatGPT应用开发",
+        link: "https://js.langchain.com.cn/docs/getting-started/install",
+      },
+    ],
+  },
+  {
     title: "社区",
     items: [
       {
