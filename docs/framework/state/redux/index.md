@@ -1,8 +1,5 @@
 # Redux 框架使用
 
-#### 参考
-
-[Redux 中文官网](http://cn.redux.js.org/introduction/getting-started)
 
 ## redux 特性
 
@@ -12,8 +9,6 @@
 - 基于 state 来渲染出 View
 - 当发生某些事情时（例如用户单击按钮），state 会根据发生的事情进行更新，生成新的 state
 - 基于新的 state 重新渲染 View
-
-![image.png](https://cdn.nlark.com/yuque/0/2021/png/605135/1638095332983-58bd2624-d030-474a-8e93-1ac5e78694d0.png#averageHue=%23fcf2f2&clientId=u1dbda3cc-be08-4&from=paste&height=222&id=u641719d2&originHeight=866&originWidth=1280&originalType=url&ratio=1&rotation=0&showTitle=false&size=64217&status=done&style=none&taskId=u9a2f8e53-74bf-4184-9152-f3e4becff71&title=&width=328)
 
 ### 不可变性 Immutability
 
@@ -283,3 +278,9 @@ export const store = configureStore({
 ### Application 实现
 
 [application 实现](http://cn.redux.js.org/tutorials/essentials/part-2-app-structure#application-%E5%AE%9E%E7%8E%B0)
+
+
+
+## 参考
+
+[Redux 中文官网](http://cn.redux.js.org/introduction/getting-started)

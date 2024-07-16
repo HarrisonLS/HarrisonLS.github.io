@@ -1,6 +1,6 @@
 # Npm 包管理工具
 
-#### [npm 中文文档](https://www.npmjs.cn/)
+[npm 中文文档](https://www.npmjs.cn/)
 
 #### NPM 是随同 NodeJS 一起安装的包管理工具，能解决 NodeJS 代码部署上的很多问题，常见的使用场景有以下几种：
 
@@ -8,17 +8,14 @@
 - 允许用户从 NPM 服务器下载并安装别人编写的命令行程序到本地使用。
 - 允许用户将自己编写的包或命令行程序上传到 NPM 服务器供别人使用
 
-### npm 相关
 
-####
 
-#### 查看 npm 版本
+
+#### 查看 npm 版本    
 
 ```
 npm -v
 ```
-
-####
 
 #### 升级 npm 版本
 
@@ -79,11 +76,14 @@ rimraf node_modules
 | npm install --save-dev | 是           | devDependencies | 是          | 否                       |
 
 #### 简写
+```text
 
 npm i module_name => npm install module_name
 npm i module_name -S => npm install module_name --save
 npm i module_name -D => npm install module_name --save-dev
 devDependencies 里面的插件只用于开发环境，不用于生产环境，而 dependencies 是需要发布到生产环境的
+
+```
 
 #### npm config
 
@@ -103,16 +103,15 @@ npm config delete configName
 - npm ci 安装包之前，会删除掉 node_modules 文件夹，因此他不需要去校验已下载文件版本与控制版本的关系，也不用校验是否存在最新版本的库，所以下载的速度更快。
 - npm 安装时，不会修改 package.json 与 package-lock.json。
 
-### module 相关
+### module 相关     
+<br>
 
-####
+#### 编辑 module   
 
-#### 编辑 module
 
 ```shell
 // 安装（i）
 npm install [<name><version>][-g]/[--save][-dev]
-
 
 // 更新（up, upgrade）
 npm update [<name><version>][-g]/[--save][-dev]
@@ -124,9 +123,10 @@ npm search [<name><version>][-g]/[--save][-dev]
 npm uninstall [<name><version>][-g]/[--save][-dev]
 ```
 
-### package.json 相关
+### package.json 相关   
+<br>
 
-#### "browserslist"
+#### "browserslist"   
 
 [https://www.npmjs.com/package/browserslist](https://www.npmjs.com/package/browserslist)
 
@@ -145,8 +145,9 @@ npm uninstall [<name><version>][-g]/[--save][-dev]
 
 ### 配置镜像地址
 
-[https://juejin.cn/book/7034689774719860739/section/7036006572954222607](https://juejin.cn/book/7034689774719860739/section/7036006572954222607)
-:::tips
+[镜像管理](https://juejin.cn/book/7034689774719860739/section/7036006572954222607)
+
+```shell
 npm config set electron_mirror https://npm.taobao.org/mirrors/electron/
 npm config set phantomjs_cdnurl https://npm.taobao.org/mirrors/phantomjs/
 npm config set puppeteer_download_host https://npm.taobao.org/mirrors/
@@ -157,15 +158,13 @@ npm config set sharp_binary_host https://npm.taobao.org/mirrors/sharp/
 npm config set sharp_dist_base_url https://npm.taobao.org/mirrors/sharp-libvips/
 npm config set sharp_libvips_binary_host https://npm.taobao.org/mirrors/sharp-libvips/
 npm config set sqlite3_binary_site https://npm.taobao.org/mirrors/sqlite3/
-:::
+```
 
 ### 官网发包相关
 
-[https://mp.weixin.qq.com/s/yk315F-aAmGf3jHeXQNtmQ](https://mp.weixin.qq.com/s/yk315F-aAmGf3jHeXQNtmQ)
+[你总不能还只会 npm i 吧](https://mp.weixin.qq.com/s/yk315F-aAmGf3jHeXQNtmQ)
 
 #### 登录官网
-
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/605135/1667963786066-92b9198b-aa13-4de9-a12b-81ab7478000a.png#averageHue=%232a303a&clientId=u2978f88a-9564-4&from=paste&height=81&id=Io2hW&originHeight=81&originWidth=355&originalType=binary&ratio=1&rotation=0&showTitle=false&size=6122&status=done&style=none&taskId=u9f5328aa-d5bd-4ec0-a73f-9ed4e06de3e&title=&width=355)
 
 ```powershell
 # 登录

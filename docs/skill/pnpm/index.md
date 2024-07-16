@@ -1,3 +1,4 @@
+# Pnpm包管理工具使用
 [官方文档](https://www.pnpm.cn/installation)
 
 ## 安装
@@ -9,8 +10,6 @@ npm install -g pnpm@next-7
 ```
 
 ### mac 系统
-
-# Pnpm 包管理工具
 
 ```shell
 brew install pnpm

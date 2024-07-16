@@ -111,7 +111,8 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
       collapsed: false,
       items: [
         { text: "Redux", link: "/framework/state/redux/" },
-        // { text: "Mobx", link: "/framework/state/mobx/" },
+        { text: "Recoil", link: "/framework/state/recoil/" },
+        { text: 'Jotai', link: '/framework/state/jotai' }
       ],
     },
   ],
@@ -122,7 +123,8 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
       items: [
         { text: "Git", link: "/skill/git/" },
         { text: "nvm", link: "/skill/nvm/" },
-        { text: "在线实用工具", link: "/skill/git/" },
+        { text: "nrm", link: "/skill/nrm/" },
+        { text: "在线实用工具", link: "/skill/onlineTools/" },
       ],
     },
     {

@@ -1,29 +1,29 @@
 {
-  "hash": "4be5be02",
-  "browserHash": "4b10f3eb",
+  "hash": "482b3d40",
+  "browserHash": "1c6765ed",
   "optimized": {
     "vue": {
-      "src": "../../../../node_modules/.pnpm/vue@3.3.4/node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "43fde79f",
-      "needsInterop": false
-    },
-    "@mdit-vue/shared": {
-      "src": "../../../../node_modules/.pnpm/@mdit-vue+shared@0.12.0/node_modules/@mdit-vue/shared/dist/index.mjs",
-      "file": "@mdit-vue_shared.js",
-      "fileHash": "e66785e0",
+      "fileHash": "fc3528a0",
       "needsInterop": false
     },
     "xmind-embed-viewer": {
-      "src": "../../../../node_modules/.pnpm/xmind-embed-viewer@1.2.0/node_modules/xmind-embed-viewer/dist/esm/index.js",
+      "src": "../../../../node_modules/xmind-embed-viewer/dist/esm/index.js",
       "file": "xmind-embed-viewer.js",
-      "fileHash": "b91d6cdd",
+      "fileHash": "51c8f02c",
+      "needsInterop": false
+    },
+    "@mdit-vue/shared": {
+      "src": "../../../../node_modules/@mdit-vue/shared/dist/index.mjs",
+      "file": "@mdit-vue_shared.js",
+      "fileHash": "856c4c09",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-T2T6Q22Z": {
-      "file": "chunk-T2T6Q22Z.js"
+    "chunk-2B2CG5KL": {
+      "file": "chunk-2B2CG5KL.js"
     }
   }
 }

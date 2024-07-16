@@ -62,7 +62,8 @@ export const nav: DefaultTheme.Config["nav"] = [
         text: "状态管理",
         items: [
           { text: "Redux", link: "/framework/state/redux/" },
-          // { text: 'React', link: '/framework/react' }
+          { text: "Recoil", link: "/framework/state/recoil/" },
+          { text: 'Jotai', link: '/framework/state/jotai' }
         ],
       },
     ],
@@ -76,6 +77,7 @@ export const nav: DefaultTheme.Config["nav"] = [
           { text: "Git", link: "/skill/git/" },
           { text: "包管理", link: "/skill/npm/" },
           { text: "nvm", link: "/skill/nvm/" },
+          { text: "nrm", link: "/skill/nrm/" },
           { text: "在线实用工具", link: "/skill/onlineTools/" },
         ],
       },
