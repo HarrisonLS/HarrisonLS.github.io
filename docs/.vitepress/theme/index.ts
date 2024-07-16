@@ -7,9 +7,10 @@ import Copyright from "./components/Copyright.vue";
 import AsideSponsors from "./components/AsideSponsors.vue";
 import MNavLinks from "./components/MNavLinks.vue";
 import XMindEmbedViewer from "./components/XmindViewer.vue";
+import Layout from "./components/Layout.vue";
 
 import "./styles/index.scss";
-// import './styles/var.scss'
+import "./styles/var.scss";
 import "./styles/fonts.scss";
 
 if (typeof window !== "undefined") {
@@ -60,6 +61,7 @@ export default {
   enhanceApp({ app }: { app: App }) {
     app.component("MNavLinks", MNavLinks);
     app.component("XmindViewer", XMindEmbedViewer);
+    // app.component("ThemeChange", Layout);
     app.provide("DEV", process.env.NODE_ENV === "development");
   },
 };
