@@ -108,3 +108,69 @@ git pull --rebase origin master
 
 git fetch 是将远程主机的最新内容拉到本地，用户在检查了以后决定是否合并到工作本机分支中。  
 而 git pull 则是将远程主机的最新内容拉下来后直接合并，即：git pull = git fetch + git merge，这样可能会产生冲突，需要手动解决。
+
+
+## GitHub 上的克隆仓库方式
+
+1. **HTTPS**：
+2. **SSH**：
+3. **GitHub CLI**：
+
+### HTTPS
+
+**HTTPS** 是超文本传输安全协议，是 HTTP 协议的安全版本。使用 HTTPS 克隆仓库是最直接的方法：
+
+- **安全性**：数据传输过程中经过 SSL 加密，保证了传输的安全性。
+- **便利性**：不需要额外配置 SSH 密钥。
+- **访问控制**：通过用户名和密码进行访问控制，也可以使用个人访问令牌（PAT）。
+- **使用方式**：
+  ```sh
+  git clone https://github.com/username/repo-name.git
+  ```
+
+### SSH
+
+**SSH** 是安全外壳协议，是一种网络协议，用于加密方式远程登录到服务器。
+
+- **安全性**：使用非对称加密技术，安全性更高。
+- **便利性**：需要在本地生成 SSH 密钥，并将公钥添加到 GitHub 账户。
+- **访问控制**：通过 SSH 密钥进行访问控制，适合自动化脚本和持续集成系统。
+- **使用方式**：
+  ```sh
+  git clone git@github.com:username/repo-name.git
+  ```
+
+### GitHub CLI
+
+**GitHub CLI** 是 GitHub 的命令行工具，它提供了一种更简单、更一致的方式来使用 GitHub。
+
+- **统一性**：提供了一个统一的界面来管理多个 Git 仓库。
+- **功能丰富**：除了克隆仓库，还支持其他 GitHub 功能，如 issue 管理、PR 管理等。
+- **配置简单**：通过 `gh auth login` 命令进行身份验证，之后即可使用。
+- **使用方式**：
+  ```sh
+  gh repo clone username/repo-name
+  ```
+
+### 区别
+
+- **安全性**：
+  - HTTPS：数据传输加密，适合大多数用户。
+  - SSH：更高级别的安全性，适合需要自动化和高级访问控制的场景。
+  - GitHub CLI：通过 OAuth 进行身份验证，安全性较高。
+
+- **配置复杂度**：
+  - HTTPS：无需额外配置，直接使用用户名和密码或 PAT。
+  - SSH：需要生成和配置 SSH 密钥。
+  - GitHub CLI：需要安装 CLI 工具并通过 `gh auth login` 进行身份验证。
+
+- **使用场景**：
+  - HTTPS：适合所有用户，特别是那些不需要自动化脚本的用户。
+  - SSH：适合需要自动化操作和高级访问控制的用户。
+  - GitHub CLI：适合需要统一管理 GitHub 操作的用户。
+
+- **访问控制**：
+  - HTTPS：基于用户名和密码或 PAT。
+  - SSH：基于 SSH 密钥。
+  - GitHub CLI：基于 OAuth。
+

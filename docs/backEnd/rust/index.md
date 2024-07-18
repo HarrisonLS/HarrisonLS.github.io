@@ -1,6 +1,7 @@
 # Rust 相关知识
 
 - [rustup 工具](https://rustup.rs/) 用于管理自己的 Rust 版本
+- [rust playground](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=8f515709abd520d98a6ac7b854227652) playground关于内存的示例
 
 ### rustup 工具使用
 
