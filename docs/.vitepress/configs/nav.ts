@@ -48,10 +48,16 @@ export const nav: DefaultTheme.Config["nav"] = [
     text: "框架使用",
     items: [
       {
-        text: "工作流",
-        items: [
+        text:'渐进式框架',
+        items:[
           { text: "React", link: "/framework/workflow/react/" },
           { text: "Vue", link: "/framework/workflow/vue/" },
+        ]
+      },
+      {
+        text: "工作流",
+        items: [
+
           { text: "NextJS", link: "/framework/workflow/nextjs/" },
           { text: "Taro", link: "/framework/workflow/taro/" },
           { text: "IceJS", link: "/framework/workflow/ice/" },

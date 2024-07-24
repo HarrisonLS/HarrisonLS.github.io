@@ -98,10 +98,18 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
       ],
     },
     {
+      text: "Vue",
+      collapsed: false,
+      items: [
+        { text: "基础知识", link: "framework/workflow/vue/index" },
+      ],
+    },
+    {
       text: "workflow工作流",
       collapsed: false,
       items: [
-        { text: "Vue", link: "/framework/workflow/vue/" },
+        { text: "NextJS", link: "/framework/workflow/nextjs/" },
+        { text: "Taro", link: "/framework/workflow/taro/" },
         { text: "IceJS", link: "/framework/workflow/ice/" },
         { text: "Umi", link: "/framework/workflow/umi/" },
       ],
