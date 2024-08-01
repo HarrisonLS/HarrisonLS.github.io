@@ -60,6 +60,7 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
       items: [
         { text: "微前端", link: "/frontEnd/microFE/" },
         { text: "业务应用记录", link: "/frontEnd/application/" },
+        { text: "实用三方包", link: "/frontEnd/usefulPackage/" },
       ],
     },
   ],

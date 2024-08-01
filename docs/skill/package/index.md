@@ -17,3 +17,15 @@ npx tsc --init
 ```
 
 [typescript.json 具体配置](/frontEnd/typescript/)
+
+
+## babel
+
+### @babel/standalone包
+ Babel 的一个独立构建版本，它允许你在浏览器和其他非 Node.js 环境中使用 Babel
+```shell
+# 安装包本身与类型注释
+npm i --save @babel/standalone
+npm i --save-dev @types/babel__standalone
+
+```

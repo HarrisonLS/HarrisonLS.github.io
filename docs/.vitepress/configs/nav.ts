@@ -30,6 +30,7 @@ export const nav: DefaultTheme.Config["nav"] = [
             text: "常用业务应用",
             link: "/frontEnd/application/",
           },
+          { text: "实用三方包", link: "/frontEnd/usefulPackage/" },
         ],
       },
     ],

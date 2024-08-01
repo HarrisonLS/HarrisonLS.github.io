@@ -192,6 +192,16 @@ export default Index;
 
 #### useDebugValue
 
+### React API
+
+#### useId
+```js
+import React from 'react';
+
+const id = React.useId();
+
+```
+
 ## 虚拟 DOM
 
 React.createElement 计算出来的东西叫做虚拟 DOM，虚拟 DOM 仅仅是对真实 DOM 的一层描述而已。要想把虚拟 DOM 转换为真实 DOM，我们需要调用的是  ReactDOM.render()这个 API

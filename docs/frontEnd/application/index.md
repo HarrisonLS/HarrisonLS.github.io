@@ -136,3 +136,33 @@ const convertToTree = (menuList) => {
   return tree;
 };
 ```
+
+### 实用hooks
+<br>
+
+#### 在useEffect中写setInterval写法
+```jsx
+import React, { useEffect, useState } from 'react';
+
+const Timer = () => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    // 设置一个定时器
+    const intervalId = setInterval(() => {
+      setCount(prevCount => prevCount + 1); // 每秒更新计数
+    }, 1000); // 每1000毫秒（1秒）执行一次
+
+    // 清理定时器
+    return () => clearInterval(intervalId);
+  }, []); // 仅在组件挂载和卸载时执行
+
+  return (
+    <div>
+      <h1>计数: {count}</h1>
+    </div>
+  );
+};
+
+export default Timer;
+```
