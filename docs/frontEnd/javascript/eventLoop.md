@@ -103,6 +103,9 @@ async2
 promise1
 promise2
 script end
+async1 end
+promise3
+setTimeout
 
 在含有await的async中，同一代码块中await后的所有代码将被放置
 返回的promise的then方法中执行，也即await后的代码将被加载进微任务队列

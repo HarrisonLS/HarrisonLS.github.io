@@ -1,4 +1,13 @@
-# package.json 依赖配置
+# package.json 依赖配置安装
+
+## Tailwind CSS
+
+[Tailwind官网安装](https://www.tailwindcss.cn/docs/guides/vite#react)
+
+```shell
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
 
 ## typescript
 
