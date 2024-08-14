@@ -136,3 +136,46 @@ export default App;
 ```
 
 ![monaco](./assets/mpnaco.png)
+
+## allotment
+
+[allotment](https://github.com/johnwalley/allotment) 是一个基于 React 的开源组件库，它提供了一种简单的方式来实现可分割的视图面板，类似于 VS Code 的分屏视图功能。这种组件特别适用于需要在 Web 应用程序中展示多个相关内容的场景，比如代码编辑器中的文件和目录树同时展示，或者数据可视化工具中图表与相关数据的并排展示。
+
+### 如何使用 `allotment`：
+
+1. **安装**：首先，你需要安装 `allotment` 包以及它的依赖 `react` 和 `react-dom`。使用 npm 或 yarn 来安装它们：
+   ```sh
+   npm install react react-dom allotment
+   ```
+   或者
+   ```sh
+   yarn add react react-dom allotment
+   ``` 
+
+2. **引入样式**：在你的 React 应用中，需要引入 `allotment` 的样式文件：
+   ```jsx
+   import "allotment/dist/style.css";
+   ```
+
+3. **使用组件**：在组件中使用 `Allotment` 和 `Allotment.Pane` 来创建分割视图。例如：
+   ```jsx
+   import React from "react";
+   import { Allotment, AllotmentPane } from "allotment";
+
+   const App = () => (
+     <Allotment>
+       <Allotment.Pane minSize={200}>
+         <div>左侧面板内容</div>
+       </Allotment.Pane>
+       <Allotment.Pane>
+         <div>右侧面板内容</div>
+       </Allotment.Pane>
+     </Allotment>
+   );
+   ```
+
+4. **配置属性**：`Allotment` 组件和 `Allotment.Pane` 组件提供了多种属性来自定义行为，例如 `minSize` 可以设置面板的最小尺寸，`defaultSizes` 可以设置初始面板大小等。
+
+5. **获取组件实例**：如果需要程序化控制，可以通过 ref 获取到 `Allotment` 组件实例，并调用其方法，例如 `reset` 和 `resize`。
+
+![allotment](https://user-images.githubusercontent.com/981531/161631194-1e24ea10-f46a-42db-bfdb-89bcfa3fc50b.gif)
