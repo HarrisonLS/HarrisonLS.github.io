@@ -141,7 +141,7 @@ export default App;
 
 [allotment](https://github.com/johnwalley/allotment) 是一个基于 React 的开源组件库，它提供了一种简单的方式来实现可分割的视图面板，类似于 VS Code 的分屏视图功能。这种组件特别适用于需要在 Web 应用程序中展示多个相关内容的场景，比如代码编辑器中的文件和目录树同时展示，或者数据可视化工具中图表与相关数据的并排展示。
 
-### 如何使用 `allotment`：
+### 使用 `allotment`示例：
 
 1. **安装**：首先，你需要安装 `allotment` 包以及它的依赖 `react` 和 `react-dom`。使用 npm 或 yarn 来安装它们：
    ```sh
@@ -179,3 +179,137 @@ export default App;
 5. **获取组件实例**：如果需要程序化控制，可以通过 ref 获取到 `Allotment` 组件实例，并调用其方法，例如 `reset` 和 `resize`。
 
 ![allotment](https://user-images.githubusercontent.com/981531/161631194-1e24ea10-f46a-42db-bfdb-89bcfa3fc50b.gif)
+
+## react-dnd
+
+[React-DnD](https://react-dnd.github.io/react-dnd/docs/tutorial) 是一个用于构建复杂拖拽界面的 React 库，它非常适合需要在不同组件之间拖拽传输数据的应用，如 Trello 或 Storify 等。React-DnD 的核心特性包括使用包裹和注入的方式使组件实现拖拽，同时保持组件分离，以及适用于构建复杂的拖放界面 。
+
+### 使用示例
+
+以下是一个简单的 React-DnD 示例，展示如何实现一个可拖拽的组件和一个可放置的组件：
+
+1. **安装 React-DnD 和 HTML5 后端：**
+
+```sh
+npm install react-dnd react-dnd-html5-backend
+```
+
+2. **定义拖拽类型：**
+
+```javascript
+// ItemTypes.js
+export default {
+  MY_DRAGGABLE: 'my-draggable',
+  MY_DROPPABLE: 'my-droppable',
+};
+```
+
+3. **创建可拖拽组件（DragSource）：**
+
+```javascript
+import React from 'react';
+import { useDrag } from 'react-dnd';
+
+const draggableStyle = {
+  border: '1px solid gray',
+  padding: '10px',
+  width: '100px',
+  height: '100px',
+  textAlign: 'center',
+};
+
+const MyDraggableComponent = ({ id }) => {
+  const [{ isDragging }, drag] = useDrag(() => ({
+    type: 'my-draggable',
+    item: { id },
+    collect: (monitor) => ({
+      isDragging: monitor.isDragging(),
+    }),
+  }));
+
+  const opacity = isDragging ? 0.5 : 1;
+  return (
+    <div ref={drag} style={{ ...draggableStyle, opacity }}>
+      Drag me {id}
+    </div>
+  );
+};
+
+export default MyDraggableComponent;
+```
+
+4. **创建可放置组件（DropTarget）：**
+
+```javascript
+import React, { useRef, useState } from 'react';
+import { useDrop } from 'react-dnd';
+
+const droppableStyle = {
+  border: '1px solid gray',
+  padding: '10px',
+  width: '200px',
+  height: '200px',
+  textAlign: 'center',
+  color: 'white',
+  background: 'green',
+};
+
+const MyDroppableComponent = () => {
+  const [collectedId, setCollectedId] = useState(null);
+  const ref = useRef(null);
+
+  const [{ isOver, canDrop }, drop] = useDrop(() => ({
+    accept: 'my-draggable',
+    drop: (item) => {
+      setCollectedId(item.id);
+    },
+    collect: (monitor) => ({
+      isOver: monitor.isOver(),
+      canDrop: monitor.canDrop(),
+    }),
+  }));
+
+  const isActive = canDrop && isOver;
+  return (
+    <div ref={drop} style={{ ...droppableStyle, background: isActive ? 'red' : 'green' }}>
+      {collectedId || 'Drop here'}
+    </div>
+  );
+};
+
+export default MyDroppableComponent;
+```
+
+5. **在应用中使用这些组件：**
+
+```javascript
+import React from 'react';
+import { DndProvider } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+import MyDraggableComponent from './MyDraggableComponent';
+import MyDroppableComponent from './MyDroppableComponent';
+
+const App = () => (
+  <DndProvider backend={HTML5Backend}>
+    <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+      <MyDraggableComponent id="1" />
+      <MyDraggableComponent id="2" />
+      <MyDroppableComponent />
+    </div>
+  </DndProvider>
+);
+
+export default App;
+```
+
+在这个示例中，`MyDraggableComponent` 可以被拖拽，而 `MyDroppableComponent` 可以接受被拖拽的元素。`DragSource` 和 `DropTarget` 都是高阶组件，它们通过装饰器模式增强了组件的拖拽功能。`DragDropContext` 包裹了整个拖拽上下文，并使用 `HTML5Backend` 作为后端实现 。
+
+React-DnD 提供了更多的配置选项和高级特性，如监控器（Monitors）、连接器（Connectors）以及更复杂的拖拽行为定义，来满足复杂的拖拽需求 。
+
+### onMoussOver  --- composedPath
+onMouseOver 事件中的 composedPath() 方法是 Event 接口的一个成员，它的作用是返回当事件被触发时，从事件触发的最内层节点一直到事件捕获的最外层节点的完整事件处理路径，即事件在 DOM 中的传播路径。
+
+composedPath() 方法返回的是一个 EventTarget 对象数组，这个数组包含了事件传播路径上的所有节点。如果影子 DOM 的模式是关闭的 ('closed')，则这个路径不会包括影子树中的节点。
+
+
+，在 React-DnD 的上下文中，composedPath() 可以用于确定拖拽事件的当前目标，这有助于开发者处理拖拽过程中的交互，例如自定义拖拽元素的样式或行为。
