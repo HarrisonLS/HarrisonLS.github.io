@@ -1,5 +1,15 @@
 # 实用三方包
 
+## NextJS 相关
+
+### request-ip
+
+- [request-ip](https://www.npmjs.com/package/request-ip)
+
+从 HTTP 请求中检索客户端的 IP 地址。这对于记录用户访问日志、进行地理定位或安全控制等多种场景都非常有用 。这个模块特别适用于在代理和 CDN 后面运行的服务器，因为它能够正确地处理相关头部信息来找出真实的客户端 IP 地址
+
+
+
 ### @monaco-editor/react
 
 - [monaco-editor/react](https://www.npmjs.com/package/@monaco-editor/react)
