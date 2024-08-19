@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
     "react": "^18.2.0",
     "vitepress": "1.0.0-alpha.75",
     "vue": "^3.3.4",

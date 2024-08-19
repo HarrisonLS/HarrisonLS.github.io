@@ -187,6 +187,46 @@ export default Index;
 #### useRef
 
 #### useImperativeHandle
+`useImperativeHandle` 是 React 中的一个 Hook，它允许你自定义由 ref 暴露出来的句柄。这通常与 `forwardRef` 一起使用，以便将 ref 传递给函数组件。使用 `useImperativeHandle`，你可以向父组件暴露自定义的 ref 句柄，例如，暴露你自己的命令式方法 。
+
+在以下例子中，`CustomInput` 组件通过 `useImperativeHandle` 暴露了 `focusInput` 和 `clearInput` 方法给父组件 `App`。父组件就可以通过 ref 调用这些方法控制输入框的行为 。
+
+```jsx
+import { forwardRef, useImperativeHandle, useRef } from 'react';
+
+const CustomInput = forwardRef((props, ref) => {
+  const inputRef = useRef(null);
+
+  // 通过 useImperativeHandle 自定义 ref 句柄
+  useImperativeHandle(ref, () => {
+    return {
+      focusInput: () => {
+        inputRef.current.focus();
+      },
+      clearInput: () => {
+        inputRef.current.value = '';
+      },
+    };
+  }, []); // 依赖数组为空，意味着这个句柄在组件的整个生命周期中只会被创建一次
+
+  return <input ref={inputRef} {...props} />;
+});
+
+// 使用 CustomInput 组件
+function App() {
+  const inputRef = useRef();
+
+  return (
+    <div>
+      <CustomInput ref={inputRef} type="text" />
+      <button onClick={() => inputRef.current.focusInput()}>Focus Input</button>
+      <button onClick={() => inputRef.current.clearInput()}>Clear Input</button>
+    </div>
+  );
+}
+```
+
+
 
 #### useLayoutEffect
 

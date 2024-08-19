@@ -112,6 +112,32 @@ export const http = (params) => {
 
 ## 实用 API    
 
+### dom元素设置自定义属性
+
+在HTML DOM中，`data-*`属性用于存储私有的自定义数据。当在DOM元素上设置`data-*`属性时，如`data-component-id`，浏览器会自动将这个属性名转换为驼峰命名法，并且把`data-`前缀去掉。因此，`data-component-id`会映射为`dataset.componentId`。
+
+这个转换过程遵循以下规则：
+1. 所有连字符(`-`)都会被去除。
+2. 每个连字符后面的字符都会转换为大写形式。
+3. `data-`前缀会被去掉。
+
+例如，如果我们有一个元素如下所示：
+```html
+<div id="myComponent" data-component-id="12345"></div>
+```
+
+我们可以通过JavaScript访问这个属性：
+```javascript
+const componentId = document.getElementById('myComponent').dataset.componentId; // "12345"
+```
+
+其他示例包括：
+- `data-toggle="collapse"` 映射为 `dataset.toggle`。
+- `data-user-id="1001"` 映射为 `dataset.userId`。
+
+这种映射方式允许开发者以一种声明式的方式来存储和访问与元素相关的数据，而不需要直接操作DOM属性。 
+
+
 ### window.navigator.getBattery()
 
 获取「电脑的充电信息」，电量变化会触发「chargingchange 事件」
