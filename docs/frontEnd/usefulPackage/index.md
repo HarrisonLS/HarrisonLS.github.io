@@ -1,15 +1,23 @@
 # 实用三方包
 
-## NestJS相关
+## NestJS 相关
+
+### request-ip
+
+- [request-ip](https://www.npmjs.com/package/request-ip)
+
+从 HTTP 请求中检索客户端的 IP 地址。这对于记录用户访问日志、进行地理定位或安全控制等多种场景都非常有用 。这个模块特别适用于在代理和 CDN 后面运行的服务器，因为它能够正确地处理相关头部信息来找出真实的客户端 IP 地址
 
 ### class-validator
+
 `class-validator` 是一个用于数据验证的 npm 包，它提供了一种基于装饰器和非装饰器的验证方式。这个库在内部使用 `validator.js` 来执行验证，并且可以在浏览器和 Node.js 平台上运行。它非常适合与 TypeScript 结合使用，可以在编译时提供类型安全保障，并减少运行时错误的可能性。
 
-
 #### 使用示例
+
 使用 `class-validator` 时，你可以在你的类上添加装饰器来定义想要验证的属性。例如：
+
 ```typescript
-import { IsEmail, IsNotEmpty, MinLength, MaxLength } from 'class-validator';
+import { IsEmail, IsNotEmpty, MinLength, MaxLength } from "class-validator";
 
 export class User {
   @IsEmail()
@@ -21,31 +29,36 @@ export class User {
   name: string;
 }
 ```
+
 然后，你可以使用 `validate` 或 `validateOrReject` 方法来执行实际的验证：
+
 ```typescript
-import { validate } from 'class-validator';
+import { validate } from "class-validator";
 
 const user = new User();
-user.email = 'example@mail.com';
-user.name = 'John';
+user.email = "example@mail.com";
+user.name = "John";
 
-validate(user).then(errors => {
+validate(user).then((errors) => {
   if (errors.length > 0) {
-    console.log('Validation failed', errors);
+    console.log("Validation failed", errors);
   } else {
-    console.log('Validation succeeded');
+    console.log("Validation succeeded");
   }
 });
 ```
+
 #### 自定义验证
+
 `class-validator` 也支持自定义验证逻辑。你可以创建自定义的验证类或装饰器来满足特定的验证需求。例如，创建一个自定义验证装饰器 `@IsLongerThan`：
+
 ```typescript
-import { registerDecorator } from 'class-validator';
+import { registerDecorator } from "class-validator";
 
 export function IsLongerThan(property: string) {
   return function (object: Object, propertyName: string) {
     registerDecorator({
-      name: 'isLongerThan',
+      name: "isLongerThan",
       target: object.constructor,
       propertyName: propertyName,
       constraints: [property],
@@ -59,7 +72,9 @@ export function IsLongerThan(property: string) {
   };
 }
 ```
+
 ### class-transformer
+
 `class-transformer` 是一个 npm 包，它提供了一种将普通 JavaScript 对象（通常从 JSON 解析得到）转换为类实例的方法，并且可以用来转换类的属性。这个库通常与 `class-validator` 一起使用，后者是一个流行的用于验证 JavaScript 对象和类实例的库。
 
 1. **转换普通对象到类实例**：`class-transformer` 允许你将普通 JavaScript 对象（plain object）转换为类的实例，这在使用装饰器进行验证之前非常有用。
@@ -73,8 +88,8 @@ export function IsLongerThan(property: string) {
 #### 使用示例
 
 ```typescript
-import { plainToClass, ClassTransformer } from 'class-transformer';
-import { IsString, IsInt } from 'class-validator';
+import { plainToClass, ClassTransformer } from "class-transformer";
+import { IsString, IsInt } from "class-validator";
 
 class User {
   @IsString()
@@ -88,9 +103,9 @@ class User {
 }
 
 const userObject = {
-  firstName: 'John',
-  lastName: 'Doe',
-  age: '30', // 将被转换为数字类型
+  firstName: "John",
+  lastName: "Doe",
+  age: "30", // 将被转换为数字类型
 };
 
 const user = plainToClass(User, userObject);
@@ -98,20 +113,17 @@ console.log(user instanceof User); // true
 console.log(user.age); // 30
 ```
 
-
 ## @monaco-editor/react
 
 - [monaco-editor/react](https://www.npmjs.com/package/@monaco-editor/react)
 
 一个封装了 Monaco Editor 的 React 组件库,由 Visual Studio Code 团队开发的代码编辑器，它提供了丰富的代码编辑功能，包括语法高亮、智能感知、代码自动补全等。
 
-
 ```jsx
-import Editor from '@monaco-editor/react';
+import Editor from "@monaco-editor/react";
 
 function App() {
-
-    const code =`import { useEffect, useState } from "react";
+  const code = `import { useEffect, useState } from "react";
 
 function App() {
     const [num, setNum] = useState(() => {
@@ -128,11 +140,12 @@ function App() {
 export default App;
 `;
 
-    return <Editor height="500px" defaultLanguage="javascript" defaultValue={code} />;
+  return (
+    <Editor height="500px" defaultLanguage="javascript" defaultValue={code} />
+  );
 }
 
 export default App;
-
 ```
 
 ![monaco](./assets/mpnaco.png)
@@ -144,20 +157,25 @@ export default App;
 ### 使用 `allotment`示例：
 
 1. **安装**：首先，你需要安装 `allotment` 包以及它的依赖 `react` 和 `react-dom`。使用 npm 或 yarn 来安装它们：
+
    ```sh
    npm install react react-dom allotment
    ```
+
    或者
+
    ```sh
    yarn add react react-dom allotment
-   ``` 
+   ```
 
 2. **引入样式**：在你的 React 应用中，需要引入 `allotment` 的样式文件：
+
    ```jsx
    import "allotment/dist/style.css";
    ```
 
 3. **使用组件**：在组件中使用 `Allotment` 和 `Allotment.Pane` 来创建分割视图。例如：
+
    ```jsx
    import React from "react";
    import { Allotment, AllotmentPane } from "allotment";
@@ -199,28 +217,28 @@ npm install react-dnd react-dnd-html5-backend
 ```javascript
 // ItemTypes.js
 export default {
-  MY_DRAGGABLE: 'my-draggable',
-  MY_DROPPABLE: 'my-droppable',
+  MY_DRAGGABLE: "my-draggable",
+  MY_DROPPABLE: "my-droppable",
 };
 ```
 
 3. **创建可拖拽组件（DragSource）：**
 
 ```javascript
-import React from 'react';
-import { useDrag } from 'react-dnd';
+import React from "react";
+import { useDrag } from "react-dnd";
 
 const draggableStyle = {
-  border: '1px solid gray',
-  padding: '10px',
-  width: '100px',
-  height: '100px',
-  textAlign: 'center',
+  border: "1px solid gray",
+  padding: "10px",
+  width: "100px",
+  height: "100px",
+  textAlign: "center",
 };
 
 const MyDraggableComponent = ({ id }) => {
   const [{ isDragging }, drag] = useDrag(() => ({
-    type: 'my-draggable',
+    type: "my-draggable",
     item: { id },
     collect: (monitor) => ({
       isDragging: monitor.isDragging(),
@@ -241,17 +259,17 @@ export default MyDraggableComponent;
 4. **创建可放置组件（DropTarget）：**
 
 ```javascript
-import React, { useRef, useState } from 'react';
-import { useDrop } from 'react-dnd';
+import React, { useRef, useState } from "react";
+import { useDrop } from "react-dnd";
 
 const droppableStyle = {
-  border: '1px solid gray',
-  padding: '10px',
-  width: '200px',
-  height: '200px',
-  textAlign: 'center',
-  color: 'white',
-  background: 'green',
+  border: "1px solid gray",
+  padding: "10px",
+  width: "200px",
+  height: "200px",
+  textAlign: "center",
+  color: "white",
+  background: "green",
 };
 
 const MyDroppableComponent = () => {
@@ -259,7 +277,7 @@ const MyDroppableComponent = () => {
   const ref = useRef(null);
 
   const [{ isOver, canDrop }, drop] = useDrop(() => ({
-    accept: 'my-draggable',
+    accept: "my-draggable",
     drop: (item) => {
       setCollectedId(item.id);
     },
@@ -271,8 +289,11 @@ const MyDroppableComponent = () => {
 
   const isActive = canDrop && isOver;
   return (
-    <div ref={drop} style={{ ...droppableStyle, background: isActive ? 'red' : 'green' }}>
-      {collectedId || 'Drop here'}
+    <div
+      ref={drop}
+      style={{ ...droppableStyle, background: isActive ? "red" : "green" }}
+    >
+      {collectedId || "Drop here"}
     </div>
   );
 };
@@ -283,15 +304,15 @@ export default MyDroppableComponent;
 5. **在应用中使用这些组件：**
 
 ```javascript
-import React from 'react';
-import { DndProvider } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
-import MyDraggableComponent from './MyDraggableComponent';
-import MyDroppableComponent from './MyDroppableComponent';
+import React from "react";
+import { DndProvider } from "react-dnd";
+import HTML5Backend from "react-dnd-html5-backend";
+import MyDraggableComponent from "./MyDraggableComponent";
+import MyDroppableComponent from "./MyDroppableComponent";
 
 const App = () => (
   <DndProvider backend={HTML5Backend}>
-    <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+    <div style={{ display: "flex", justifyContent: "space-around" }}>
       <MyDraggableComponent id="1" />
       <MyDraggableComponent id="2" />
       <MyDroppableComponent />
@@ -306,10 +327,10 @@ export default App;
 
 React-DnD 提供了更多的配置选项和高级特性，如监控器（Monitors）、连接器（Connectors）以及更复杂的拖拽行为定义，来满足复杂的拖拽需求 。
 
-### onMoussOver  --- composedPath
+### onMoussOver --- composedPath
+
 onMouseOver 事件中的 composedPath() 方法是 Event 接口的一个成员，它的作用是返回当事件被触发时，从事件触发的最内层节点一直到事件捕获的最外层节点的完整事件处理路径，即事件在 DOM 中的传播路径。
 
 composedPath() 方法返回的是一个 EventTarget 对象数组，这个数组包含了事件传播路径上的所有节点。如果影子 DOM 的模式是关闭的 ('closed')，则这个路径不会包括影子树中的节点。
-
 
 ，在 React-DnD 的上下文中，composedPath() 可以用于确定拖拽事件的当前目标，这有助于开发者处理拖拽过程中的交互，例如自定义拖拽元素的样式或行为。
