@@ -144,6 +144,221 @@ const componentId = document.getElementById('myComponent').dataset.componentId; 
 
 ![获取设备电量](/image/browser/getBattery.jpg)
 
+### 5个实用observer
+
+<br>
+
+#### IntersectionObserver
+
+IntersectionObserver 可以监听一个元素和可视区域相交部分的比例，然后在可视比例达到某个阈值的时候触发回调,即观测元素从不可见到可见，从可见到不可见的一个过程。
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #box1,#box2 {
+            width: 100px;
+            height: 100px;
+            background: blue;
+            color: #fff;
+
+            position: relative;
+        }
+        #box1 {
+            top: 500px;
+        }
+        #box2 {
+            top: 800px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">BOX111</div>
+    <div id="box2">BOX222</div>
+    <script>
+        const intersectionObserver = new IntersectionObserver(
+            function (entries) {
+                console.log('entries: ', entries);
+                console.log('info:');
+                entries.forEach(item => {
+                    console.log(item.target, item.intersectionRatio)
+                })
+            }, {
+            threshold: [0.5, 1]
+        });
+
+        intersectionObserver.observe( document.querySelector('#box1'));
+        intersectionObserver.observe( document.querySelector('#box2'));
+    </script>
+</body>
+</html>
+```
+
+![intersectionObserver](/image/browser/intersectionObserver.png)
+
+<br>
+
+#### MutationObserver
+
+```html
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+         #box {
+            width: 100px;
+            height: 100px;
+            background: blue;
+
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"><button>harrison</button></div>
+
+    <script>
+        const box = document.getElementById('box');
+
+        const mutationObserver = new MutationObserver((mutationsList) => {
+            console.log(mutationsList)
+        });
+
+        mutationObserver.observe(box, {
+            attributes: true,
+            childList: true
+        });
+
+        setTimeout(() => {
+            box.style.background = 'red';
+        },2000);
+
+        setTimeout(() => {
+            const dom = document.createElement('button');
+            dom.textContent = '木木木';
+            box.appendChild(dom);
+        },3000);
+
+        setTimeout(() => {
+           document.querySelectorAll('button')[0].remove();
+        },5000);
+    </script>
+</body>
+</html>
+
+```
+![mutationObserver](/image/browser/mutationObserver.png)
+
+<br>
+
+#### ResizeObserver
+
+ResizeObserver 是一个用于监听元素尺寸变化的 Web API，它提供了一种高效的方式来响应元素大小的变化。
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <style>
+    #box {
+        width: 100px;
+        height: 100px;
+        background: blue;
+    }
+    
+</style>
+    <body>
+        <div id="box"></div>
+        <script>
+        const box = document.querySelector('#box');
+
+        setTimeout(() => {
+            box.style.width = '200px';
+        }, 3000);
+
+        const resizeObserver = new ResizeObserver(entries => {
+            console.log('当前大小', entries)
+        });
+        resizeObserver.observe(box);
+
+    </script>
+    </body>
+</html>
+```
+
+![resizeObserver](/image/browser/resizeObserver.png)
+
+
+#### PerformanceObserver
+
+可以使用 performance.mark() 和 performance.measure() 来测量代码执行时间，比如测量页面加载时间、动画持续时间或用户交互响应时间。
+
+```html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="measureClick()">Measure</button>
+  
+    <img src="https://p9-passport.byteacctimg.com/img/user-avatar/4e9e751e2b32fb8afbbf559a296ccbf2~300x300.image" />
+  
+    <script>
+      const performanceObserver = new PerformanceObserver(list => {
+        list.getEntries().forEach(entry => {
+          console.log(entry);// 上报
+        })
+      });
+      performanceObserver.observe({entryTypes: ['resource', 'mark', 'measure']});
+  
+      performance.mark('registered-observer');
+  
+      function measureClick() {
+        performance.measure('button clicked');
+      }
+    </script>
+  </body>
+</html>
+
+```
+![performanceObserver](/image/browser/performanceObserver.png)
+
+#### ReportingObserver
+
+ReportingObserver 可以监听过时的 api、浏览器干预等报告等的打印，在回调里上报，这些是错误监听无法监听到但对了解网页运行情况很有用的数据
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            const reportingObserver = new ReportingObserver((reports, observer) => {
+                for (const report of reports) {
+                    console.log(report.body);//上报
+                }
+            }, {types: ['intervention', 'deprecation']});
+            
+            reportingObserver.observe();
+    </script>
+    </body>
+</html>
+```
+
 ## 相关文章
 
 [面试知识点复盘【浏览器原理&安全】篇](https://juejin.cn/post/7168637354536599559#heading-102)
