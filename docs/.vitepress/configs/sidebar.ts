@@ -170,7 +170,10 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
     {
       text: "webGL",
       collapsed: false,
-      items: [{ text: "基础记录", link: "/interest/webgl/" }],
+      items: [
+        { text: "基础记录", link: "/interest/webgl/" },
+        { text: "TweenJS", link: "/interest/tweenJs/" },
+      ],
     },
     {
       text: "SVG",

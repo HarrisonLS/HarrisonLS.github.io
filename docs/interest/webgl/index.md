@@ -1,5 +1,11 @@
 # webGL 基础知识记录
 
+Three.js 和 WebGL 的关系
+
+WebGL 是一种 3D 绘图协议，它提供了 JavaScript API，允许开发者在浏览器中直接使用 GPU 进行 3D 图形渲染。WebGL 基于 OpenGL ES 2.0 标准，可以用于在任何兼容的 Web 浏览器中呈现交互式 3D 和 2D 图形，而无需使用插件。WebGL 可以为 HTML5 Canvas 提供硬件 3D 加速渲染，使 Web 开发人员能够借助系统显卡在浏览器中更流畅地展示 3D 场景和模型。
+
+Three.js 是一个基于 WebGL 的 JavaScript 3D 图形库，它封装了 WebGL 的复杂性，提供了更高级别的 API，使开发者能够更容易地创建和显示 3D 图形。Three.js 由居住在西班牙巴塞罗那的程序员 Ricardo Cabbello Miguel（网名 Mr.doob）开发，它以简单、直观的方式封装了 3D 图形编程中常用的对象，极大地提高了性能。
+
 ## 图形学概念
 
 ### SDF 函数

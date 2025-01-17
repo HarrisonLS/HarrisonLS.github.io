@@ -154,6 +154,10 @@ transform: scale(0.7);
 - 而行内元素是没有宽高的，所以对于行内元素设置小于 12px，我们可以加上一个 display:inline-block;
   :::
 
+## 扩展 & 新特性
+
+[css 控制 dom 渲染中 display:none --> block 的动画](https://medium.com/@centrodph/animate-transition-from-display-none-to-display-block-e71f0927ddea)
+
 ## 相关文章
 
 [面试知识点复盘【CSS】篇](https://juejin.cn/post/7179809074551193659/)
