@@ -1,4 +1,5 @@
-# Pnpm包管理工具使用
+# Pnpm 包管理工具使用
+
 [官方文档](https://www.pnpm.cn/installation)
 
 ## 安装
@@ -28,6 +29,18 @@ pnpm add -g pnpm
 | npm install | pnpm install  |
 | npm add pkg | pnpm add pkg  |
 | npm cmd     | pnpm cmd      |
+
+版本兼容性：
+
+pnpm 7 需要至少 Node.js v14 的版本，而 pnpm 9 需要至少 Node.js v18.12 的版本。
+
+| 兼容性     | pnpm 7 | pnpm 8 | pnpm 9 |
+| ---------- | ------ | ------ | ------ |
+| Node.js 12 | ❌     | ❌     | ❌     |
+| Node.js 14 | ✔️     | ❌     | ❌     |
+| Node.js 16 | ✔️     | ✔️     | ❌     |
+| Node.js 18 | ✔️     | ✔️     | ✔️     |
+| Node.js 20 | ✔️     | ✔️     | ✔️     |
 
 ## 卸载
 

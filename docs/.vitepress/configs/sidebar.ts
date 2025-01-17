@@ -101,9 +101,7 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
     {
       text: "Vue",
       collapsed: false,
-      items: [
-        { text: "基础知识", link: "framework/workflow/vue/index" },
-      ],
+      items: [{ text: "基础知识", link: "framework/workflow/vue/index" }],
     },
     {
       text: "workflow工作流",
@@ -121,7 +119,7 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
       items: [
         { text: "Redux", link: "/framework/state/redux/" },
         { text: "Recoil", link: "/framework/state/recoil/" },
-        { text: 'Jotai', link: '/framework/state/jotai' }
+        { text: "Jotai", link: "/framework/state/jotai" },
       ],
     },
   ],
@@ -149,9 +147,11 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
       text: "环境配置与软件安装",
       collapsed: false,
       items: [
+        { text: "EsLint", link: "/skill/eslint/" },
+        { text: "Prettier", link: "/skill/prettier/" },
+        { text: "package.json依赖配置", link: "/skill/package/" },
         { text: "VS Code 插件与配置", link: "/skill/vscode/" },
         { text: "Mac OS 平台", link: "/skill/mac/" },
-        { text: "package.json依赖配置", link: "/skill/package/" },
         // { text: "Mac OS 平台", link: "/skill/mac/" }
       ],
     },

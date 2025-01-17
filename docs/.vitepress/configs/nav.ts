@@ -91,9 +91,11 @@ export const nav: DefaultTheme.Config["nav"] = [
       {
         text: "环境配置与软件安装",
         items: [
+          { text: "EsLint", link: "/skill/eslint/" },
+          { text: "Prettier", link: "/skill/prettier/" },
+          { text: "package.json依赖配置", link: "/skill/package/" },
           { text: "VS Code 插件与配置", link: "/skill/vscode/" },
           { text: "Mac OS 平台", link: "/skill/mac/" },
-          { text: "package.json依赖配置", link: "/skill/package/" },
         ],
       },
     ],
