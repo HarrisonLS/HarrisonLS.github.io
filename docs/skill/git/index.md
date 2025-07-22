@@ -128,6 +128,37 @@ git fetch 是将远程主机的最新内容拉到本地，用户在检查了以�
   git clone https://github.com/username/repo-name.git
   ```
 
+#### 命令行网络代理
+
+设置命令行网络代理
+```sh
+# 将8080替换为vpn端口，比如clash一般为7890
+git config --global http.proxy "http://127.0.0.1:8080"
+
+git config --global https.proxy "http://127.0.0.1:8080"
+```
+
+取消网络代理
+```sh
+git config --global --unset http.proxy
+
+git config --global --unset https.proxy
+```
+
+同时还可以找到用户环境下的.gitconfig进行设置
+```txt
+[user]
+	name = 006094
+	email = linsen@fcbox.com
+[credential "http://git.fcbox.com"]
+	provider = gitlab
+[https]
+	proxy = http://127.0.0.1:7890
+[http]
+	proxy = http://127.0.0.1:7890
+
+```
+
 ### SSH
 
 **SSH** 是安全外壳协议，是一种网络协议，用于加密方式远程登录到服务器。
