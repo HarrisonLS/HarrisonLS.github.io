@@ -70,7 +70,27 @@ $ git tag -d "V1.0.0"
 $ git push origin :refs/tags/v20190514
 ```
 
-### git flow
+
+
+## git 问题解决
+
+### git flow 管理策略
+  - main/master
+  - develop
+  - feature/*
+  - release/*
+  - hotfix/*
+
+```txt
+日常开发：
+从 develop 拉 feature 分支 → 开发完成后合并回 develop。
+
+准备发布：
+从 develop 拉 release 分支 → 测试修bug → 合并到 main 打 Tag。
+
+线上紧急修复：
+从 main 拉 hotfix 分支 → 修复后合并到 main 和 develop。
+```
 
 ### git 创建并链接分支
 
@@ -102,13 +122,31 @@ git branch -m 旧本地分支名 新本地分支名
 
 git pull --rebase origin master
 
-### git 初始化账号密码输入错误，导致绑定失败
+
 
 ### git fetch 和 git pull 的区别
 
 git fetch 是将远程主机的最新内容拉到本地，用户在检查了以后决定是否合并到工作本机分支中。  
 而 git pull 则是将远程主机的最新内容拉下来后直接合并，即：git pull = git fetch + git merge，这样可能会产生冲突，需要手动解决。
 
+### git 撤回最新一次commit
+
+| 场景    | 命令                            |
+| ----- | ----------------------------- |
+| 本地未推送 | `git reset --soft HEAD~1`     |
+| 已推送远程 | `git revert HEAD && git push` |
+
+### git reset 和 git revert 的区别
+
+| 特性          | `git revert`               | `git reset`           |
+| ----------- | -------------------------- | --------------------- |
+| **作用方式**    | 创建**新提交**来“反向”撤销旧提交        | 直接**移动分支指针**，可能删除提交历史 |
+| **是否改历史**   | ❌ **不改历史**（安全，适合公共分支）      | ✅ **改写历史**（危险，仅限本地）   |
+| **是否生成新提交** | ✅ 会生成一个 `Revert "xxx"` 的提交 | ❌ 不生成新提交              |
+| **适用场景**    | 已推送到远程的提交                  | 本地未推送的提交              |
+
+
+### git 初始化账号密码输入错误，导致绑定失败
 
 ## GitHub 上的克隆仓库方式
 
