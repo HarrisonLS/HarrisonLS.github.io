@@ -8,10 +8,7 @@
 - 允许用户从 NPM 服务器下载并安装别人编写的命令行程序到本地使用。
 - 允许用户将自己编写的包或命令行程序上传到 NPM 服务器供别人使用
 
-
-
-
-#### 查看 npm 版本    
+#### 查看 npm 版本
 
 ```
 npm -v
@@ -76,6 +73,7 @@ rimraf node_modules
 | npm install --save-dev | 是           | devDependencies | 是          | 否                       |
 
 #### 简写
+
 ```text
 
 npm i module_name => npm install module_name
@@ -103,11 +101,11 @@ npm config delete configName
 - npm ci 安装包之前，会删除掉 node_modules 文件夹，因此他不需要去校验已下载文件版本与控制版本的关系，也不用校验是否存在最新版本的库，所以下载的速度更快。
 - npm 安装时，不会修改 package.json 与 package-lock.json。
 
-### module 相关     
+### module 相关
+
 <br>
 
-#### 编辑 module   
-
+#### 编辑 module
 
 ```shell
 // 安装（i）
@@ -123,10 +121,11 @@ npm search [<name><version>][-g]/[--save][-dev]
 npm uninstall [<name><version>][-g]/[--save][-dev]
 ```
 
-### package.json 相关   
+### package.json 相关
+
 <br>
 
-#### "browserslist"   
+#### "browserslist"
 
 [https://www.npmjs.com/package/browserslist](https://www.npmjs.com/package/browserslist)
 
@@ -209,4 +208,43 @@ npm show [package-name]
 
 ```powershell
 npm v [package-name] versions
+```
+
+### 使用 cross-env 抹平系统差异
+
+在 mac 和 Linux 上，环境变量可以直接通过 VAR=value 的形式设置。
+
+```json
+  "scripts": {
+    "dev": "PUBLIC_URL=/fcbox-ui/ craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject"
+  }
+```
+
+在 Windows 上，环境变量需要通过 set VAR=value 的形式设置。
+
+```json
+  "scripts": {
+    "dev": "set PUBLIC_URL=/fcbox-ui/ &&  craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject"
+  }
+```
+
+cross-env 统一了环境变量的设置方式，使脚本可以在所有平台上正常运行
+
+```shell
+npm install cross-env --save-dev
+```
+
+```json
+"scripts": {
+  "dev": "cross-env PUBLIC_URL=/fcbox-ui/ craco start",
+  "build": "craco build",
+  "test": "craco test",
+  "eject": "react-scripts eject"
+}
 ```
