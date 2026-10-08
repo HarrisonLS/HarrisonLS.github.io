@@ -12,7 +12,6 @@ export const nav: DefaultTheme.Config["nav"] = [
           { text: "JavaScript 基础知识", link: "/frontEnd/javascript/type" },
           { text: "TypeScript 基础知识", link: "/frontEnd/typescript/" },
           { text: "CSS 理论知识", link: "/frontEnd/css/" },
-          { text: "ES6 常用知识", link: "/frontEnd/es6/" },
           { text: "设计模式", link: "/frontEnd/dm/" },
           { text: "浏览器 基础知识", link: "/frontEnd/browser/" },
           { text: "计算机网络 基础知识", link: "/frontEnd/network/" },
@@ -49,16 +48,15 @@ export const nav: DefaultTheme.Config["nav"] = [
     text: "框架使用",
     items: [
       {
-        text:'渐进式框架',
-        items:[
+        text: "渐进式框架",
+        items: [
           { text: "React", link: "/framework/workflow/react/" },
           { text: "Vue", link: "/framework/workflow/vue/" },
-        ]
+        ],
       },
       {
         text: "工作流",
         items: [
-
           { text: "NextJS", link: "/framework/workflow/nextjs/" },
           { text: "Taro", link: "/framework/workflow/taro/" },
           { text: "IceJS", link: "/framework/workflow/ice/" },
@@ -70,7 +68,7 @@ export const nav: DefaultTheme.Config["nav"] = [
         items: [
           { text: "Redux", link: "/framework/state/redux/" },
           { text: "Recoil", link: "/framework/state/recoil/" },
-          { text: 'Jotai', link: '/framework/state/jotai' }
+          { text: "Jotai", link: "/framework/state/jotai" },
         ],
       },
     ],

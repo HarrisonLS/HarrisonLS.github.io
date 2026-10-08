@@ -4,7 +4,7 @@ import { nav, sidebar, algolia } from "./configs";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "五目十行",
-  description: "A VitePress Site",
+  description: "Harrison 的前端开发知识库与技术资源导航",
   head: [
     [
       "link",
@@ -32,7 +32,10 @@ export default defineConfig({
     sidebar: sidebar,
 
     socialLinks: [
-      { icon: "github", link: "https://github.com/vuejs/vitepress" },
+      {
+        icon: "github",
+        link: "https://github.com/HarrisonLS/HarrisonLS.github.io",
+      },
     ],
   },
 });

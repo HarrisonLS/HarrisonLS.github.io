@@ -1,20 +1,26 @@
 <script setup lang="ts">
-import { inject, Ref, computed } from "vue";
+import { computed, inject } from "vue";
 import { useRoute } from "vitepress";
 
-const DEV = inject("DEV") as Ref<boolean>;
+const isDevelopment = inject<boolean>("DEV", false);
 const route = useRoute();
 
-const pageId = computed(() => route.path.replace("/mm-notes", ""));
+const pageId = computed(() => {
+  const normalizedPath = route.path
+    .replace(/^\/+|\/+$/g, "")
+    .replace(/\//g, ".");
+
+  return normalizedPath || "home";
+});
 const yearInfo = new Date().getFullYear();
 </script>
 
 <template>
   <div class="copyright">
     <img
-      v-if="!DEV"
+      v-if="!isDevelopment"
       class="visitor"
-      :src="`https://visitor-badge.laobi.icu/badge?page_id=maomao1996.notes.${pageId}`"
+      :src="`https://visitor-badge.laobi.icu/badge?page_id=harrisonls.github.io.${pageId}`"
       title="当前页面累计访问数"
       onerror="this.style.display='none'"
     />

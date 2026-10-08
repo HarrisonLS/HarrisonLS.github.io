@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main # 监听的分支
+  pull_request:
+    branches:
+      - main
 
 jobs:
   deploy:
@@ -20,12 +23,16 @@ jobs:
           node-version: 22
           cache: pnpm
 
-      - name: Pnpm Install && Build
-        run: pnpm install --frozen-lockfile && pnpm run build
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Check documents and build
+        run: pnpm run check
 
       - name: Deploy
+        if: github.event_name == 'push'
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}  # GitHub 私人令牌
+          github_token: ${{ secrets.GITHUB_TOKEN }} # GitHub 私人令牌
           publish_dir: docs/.vitepress/dist # 部署的文件目录
           # cname: example.com # if wanna deploy to custom domain

@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { inject, Ref } from 'vue'
+import { inject } from "vue";
 
-const DEV = inject('DEV') as Ref<boolean>
+const isDevelopment = inject<boolean>("DEV", false);
 </script>
 
 <template>
   <img
-    v-if="!DEV"
+    v-if="!isDevelopment"
     class="visitor"
     src="https://visitor-badge.laobi.icu/badge?page_id=harrisonls.github.io"
     onerror="this.style.display='none'"

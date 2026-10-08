@@ -16,7 +16,7 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
     },
     {
       text: "设计模式",
-      link: "frontEnd/dm/",
+      link: "/frontEnd/dm/",
     },
     {
       text: "HTML / CSS",
@@ -68,40 +68,40 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
     {
       text: "NestJS",
       collapsed: false,
-      items: [{ text: "基础知识", link: "backEnd/nest/index" }],
+      items: [{ text: "基础知识", link: "/backEnd/nest/" }],
     },
     {
       text: "Rust",
       collapsed: false,
-      items: [{ text: "基础知识", link: "backEnd/rust/index" }],
+      items: [{ text: "基础知识", link: "/backEnd/rust/" }],
     },
     {
       text: "Docker",
       collapsed: false,
-      items: [{ text: "基础知识", link: "backEnd/docker/index" }],
+      items: [{ text: "基础知识", link: "/backEnd/docker/" }],
     },
     {
       text: "操作系统",
       collapsed: false,
       items: [
-        { text: "基础知识", link: "backEnd/os/index" },
-        { text: "问题解决", link: "backEnd/os/solved" },
+        { text: "基础知识", link: "/backEnd/os/" },
+        { text: "问题解决", link: "/backEnd/os/solved" },
       ],
     },
   ],
-  "/framework": [
+  "/framework/": [
     {
       text: "React",
       collapsed: false,
       items: [
-        { text: "基础知识", link: "framework/workflow/react/index" },
-        { text: "hooks", link: "framework/workflow/react/hooks" },
+        { text: "基础知识", link: "/framework/workflow/react/" },
+        { text: "hooks", link: "/framework/workflow/react/hooks" },
       ],
     },
     {
       text: "Vue",
       collapsed: false,
-      items: [{ text: "基础知识", link: "framework/workflow/vue/index" }],
+      items: [{ text: "基础知识", link: "/framework/workflow/vue/" }],
     },
     {
       text: "workflow工作流",
@@ -123,7 +123,7 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
       ],
     },
   ],
-  "/skill": [
+  "/skill/": [
     {
       text: "工具使用",
       collapsed: false,
@@ -156,7 +156,7 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
       ],
     },
   ],
-  "/algorithm": [
+  "/algorithm/": [
     {
       text: "算法题目记录",
       collapsed: false,
@@ -166,7 +166,7 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
       ],
     },
   ],
-  "/interest": [
+  "/interest/": [
     {
       text: "webGL",
       collapsed: false,

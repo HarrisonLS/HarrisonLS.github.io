@@ -16,7 +16,9 @@
 - 本地开发：`pnpm dev`。
 - 生产构建：`pnpm build`。
 - 本地预览：`pnpm docs:preview`。
-- 仓库暂未配置独立的 lint、类型检查或测试脚本；至少以生产构建作为提交前验证。
+- 文档健康检查：`pnpm run check:docs`。
+- 格式检查：`pnpm run format:check`。
+- 完整验证：`pnpm run check`（格式、文档健康检查和生产构建）。
 
 仓库使用 `pnpm-lock.yaml` 作为唯一依赖锁文件。不要使用 npm 或 Yarn 更新依赖，也不要重新生成 `package-lock.json` 或 `yarn.lock`。
 
@@ -78,8 +80,8 @@
 
 ## 生成物与仓库卫生
 
-- `docs/.vitepress/cache/` 和 `docs/.vitepress/dist/` 是 VitePress 生成物。它们目前已被版本控制追踪，但日常内容或主题修改不要手工编辑这些文件。
-- 构建后如生成物发生变化，先确认任务是否要求提交构建产物；没有明确要求时，只提交源文件，并在交付说明中指出构建结果。
+- `docs/.vitepress/cache/` 和 `docs/.vitepress/dist/` 是 VitePress 生成物，已由 `.gitignore` 排除，不应提交到版本库。
+- 构建后只提交源文件；部署流程会在 CI 中重新生成站点产物。
 - 不提交 `node_modules/`、日志、编辑器临时文件或包含本机绝对路径的临时产物。
 - 不删除用户已有改动，不使用 `git reset --hard`、`git clean -fd` 或强制覆盖来整理工作区。
 
@@ -87,7 +89,7 @@
 
 根据改动范围执行以下检查：
 
-- 所有改动：`pnpm build`。
+- 所有改动：`pnpm run check`。
 - 文档改动：标题层级、代码围栏、内部链接、图片路径正确，新增页面已接入导航。
 - 导航改动：链接目标存在，路径前导 `/` 一致，分组和激活范围合理。
 - Vue/主题改动：构建无 SSR 报错；交互在桌面端和窄屏下均可用；亮暗主题可读。
