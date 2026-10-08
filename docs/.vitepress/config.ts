@@ -1,6 +1,6 @@
 import { defineConfig } from "vitepress";
 
-import { head, nav, sidebar, algolia } from "./configs";
+import { nav, sidebar, algolia } from "./configs";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "五目十行",
@@ -20,16 +20,13 @@ export default defineConfig({
     lineNumbers: true,
   },
   lang: "zh-CN",
-  
-
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     outline: { level: [1, 4] },
-    // search: {
-    //   provider: "algolia",
-    //   options: algolia,
-    // },
-    algolia,
+    search: {
+      provider: "algolia",
+      options: algolia,
+    },
 
     nav: nav,
     sidebar: sidebar,

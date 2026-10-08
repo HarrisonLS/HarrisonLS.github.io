@@ -9,22 +9,22 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
-      
-      - uses: actions/setup-node@v3
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v7
         with:
-          node-version: 18
-  
-      - name: Install Pnpm
-        run: npm install -g pnpm
+          node-version: 22
+          cache: pnpm
 
       - name: Pnpm Install && Build
-        run: pnpm install --no-frozen-lockfile && pnpm run build
+        run: pnpm install --frozen-lockfile && pnpm run build
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}  # GitHub 私人令牌
           publish_dir: docs/.vitepress/dist # 部署的文件目录

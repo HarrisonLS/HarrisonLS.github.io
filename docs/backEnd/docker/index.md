@@ -59,7 +59,7 @@ docker version
 
 使用 docker 最简单的方式莫过于从现有的容器镜像开始。Docker 官方网站专门有一个页面来存储所有可用的镜像，网址是： [index.docker.io](http://index.docker.io/)。你可以通过浏览这个网页来查找你想要使用的镜像，或者使用命令行的工具来检索。
 
-[官网可用镜像搜索](index.docker.io)
+[官网可用镜像搜索](https://index.docker.io)
 命令行的格式为：docker search 镜像名字
 
 ```bash
