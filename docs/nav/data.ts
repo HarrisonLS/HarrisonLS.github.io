@@ -38,7 +38,7 @@ export const NAV_DATA: NavData[] = [
         icon: "https://c.runoob.com/wp-content/uploads/2016/11/regular.png",
         title: "正则表达式在线测试",
         desc: "菜鸟工具 正则表达式格式化验证",
-        link: "https://c.runoob.com/front-end/854/",
+        link: "https://www.jyshare.com/front-end/854/",
       },
       {
         title: "PageSpeed Insights",
@@ -450,7 +450,7 @@ export const NAV_DATA: NavData[] = [
       {
         title: "Deno",
         desc: "安全、现代的 JavaScript 与 TypeScript 运行时",
-        link: "https://docs.deno.com/",
+        link: "https://docs.deno.com/runtime/",
       },
     ],
   },
@@ -538,12 +538,12 @@ export const NAV_DATA: NavData[] = [
       {
         title: "Rspack",
         desc: "基于 Rust、兼容 webpack 生态的高性能打包工具",
-        link: "https://rspack.dev/",
+        link: "https://rspack.rs/",
       },
       {
         title: "Rsbuild",
         desc: "基于 Rspack 的开箱即用构建工具",
-        link: "https://rsbuild.dev/",
+        link: "https://rsbuild.rs/",
       },
       {
         title: "Rolldown",
@@ -705,7 +705,7 @@ export const NAV_DATA: NavData[] = [
       {
         title: "Anthropic API",
         desc: "Claude API 官方开发文档",
-        link: "https://docs.anthropic.com/",
+        link: "https://platform.claude.com/docs/en/home",
       },
       {
         title: "Vercel AI SDK",
