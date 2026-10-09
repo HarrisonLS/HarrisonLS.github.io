@@ -1,0 +1,39 @@
+name: Check external links
+
+on:
+  schedule:
+    # 每月 1 日北京时间 10:00（UTC 02:00）执行。
+    - cron: "0 2 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-external-links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Check navigation links
+        run: pnpm run check:external-links
+
+      - name: Upload link reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: external-link-reports
+          path: reports/external-links.*
+          if-no-files-found: error
+          retention-days: 90

@@ -13,10 +13,12 @@
     "build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "check:docs": "node scripts/check-docs.mjs",
+    "check:external-links": "node scripts/check-external-links.mjs",
     "format:check": "prettier --check docs/.vitepress/config.ts docs/.vitepress/configs/*.ts docs/.vitepress/theme/index.ts docs/.vitepress/theme/components/Visitor.vue docs/.vitepress/theme/components/Copyright.vue docs/nav/data.ts scripts/*.mjs package.json",
     "check": "pnpm run format:check && pnpm run check:docs && pnpm run build"
   },
   "devDependencies": {
+    "@babel/parser": "7.29.9",
     "@femm/prettier": "^1.0.1",
     "@mdit-vue/shared": "^2.1.3",
     "@types/node": "^22.10.7",

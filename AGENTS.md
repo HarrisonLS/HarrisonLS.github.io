@@ -17,6 +17,7 @@
 - 生产构建：`pnpm build`。
 - 本地预览：`pnpm docs:preview`。
 - 文档健康检查：`pnpm run check:docs`。
+- 导航外链检查：`pnpm run check:external-links`（访问公网，生成 `reports/external-links.{md,json}`）。
 - 格式检查：`pnpm run format:check`。
 - 完整验证：`pnpm run check`（格式、文档健康检查和生产构建）。
 
@@ -37,6 +38,7 @@
 - `docs/.vitepress/configs/`：导航栏、侧边栏、HTML head 和搜索配置。
 - `docs/.vitepress/theme/`：自定义 Vue 组件及 SCSS 样式。
 - `.github/workflows/deploy.yml`：GitHub Pages 部署流程。
+- `.github/workflows/check-external-links.yml`：每月执行的导航外链检查，支持手动触发。
 
 ## 工作流程
 

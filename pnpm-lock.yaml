@@ -27,6 +27,9 @@ importers:
         specifier: ^1.2.0
         version: 1.2.0
     devDependencies:
+      '@babel/parser':
+        specifier: 7.29.9
+        version: 7.29.9
       '@femm/prettier':
         specifier: ^1.0.1
         version: 1.1.0
