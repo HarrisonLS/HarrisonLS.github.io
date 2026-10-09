@@ -8,7 +8,7 @@ export const algolia = {
   insights: true,
   // container: "docSearch",
   searchParameters: {
-    facetFilters: ["language:cn", "version:1.0.0"],
+    facetFilters: ["lang:zh-CN"],
   },
   placeholder: "搜索",
   translations: {
