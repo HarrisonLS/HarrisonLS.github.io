@@ -89,6 +89,13 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
       ],
     },
   ],
+  "/ai/": [
+    {
+      text: "提示词",
+      collapsed: false,
+      items: [{ text: "基础知识与技巧", link: "/ai/prompt/" }],
+    },
+  ],
   "/framework/": [
     {
       text: "React",

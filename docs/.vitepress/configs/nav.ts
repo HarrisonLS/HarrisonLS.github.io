@@ -45,6 +45,11 @@ export const nav: DefaultTheme.Config["nav"] = [
     ],
   },
   {
+    text: "AI",
+    items: [{ text: "提示词", link: "/ai/prompt/" }],
+    activeMatch: "^/ai",
+  },
+  {
     text: "框架使用",
     items: [
       {

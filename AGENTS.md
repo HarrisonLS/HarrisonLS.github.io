@@ -29,6 +29,7 @@
 - `docs/nav.md`、`docs/nav/data.ts`、`docs/nav/index.scss`：资源导航页面及其数据、样式。
 - `docs/frontEnd/`：前端基础、浏览器、网络、面试及业务应用笔记。
 - `docs/backEnd/`：NestJS、Rust、Docker、操作系统等后端笔记。
+- `docs/ai/`：AI 提示词等 AI 专题笔记。
 - `docs/framework/`：React、Vue、工作流和状态管理笔记。
 - `docs/skill/`：Git、包管理、编辑器和开发工具笔记。
 - `docs/algorithm/`：算法题记录。
