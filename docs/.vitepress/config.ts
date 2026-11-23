@@ -47,6 +47,15 @@ export default defineConfig({
   markdown: {
     lineNumbers: true,
   },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: "modern-compiler",
+        },
+      },
+    },
+  },
   lang: "zh-CN",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config

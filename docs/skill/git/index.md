@@ -94,7 +94,7 @@ $ git push origin :refs/tags/v20190514
 
 ### git 创建并链接分支
 
-```git
+```bash
 // 1,从已有的分支创建新的分支(如从master分支),创建一个dev分支
 git checkout -b dev
 
@@ -242,4 +242,3 @@ git config --global --unset https.proxy
   - HTTPS：基于用户名和密码或 PAT。
   - SSH：基于 SSH 密钥。
   - GitHub CLI：基于 OAuth。
-

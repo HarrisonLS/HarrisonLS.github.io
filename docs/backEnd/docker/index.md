@@ -157,7 +157,7 @@ docker push learn/ping
 
 ### DockerFile
 
-```arduino
+```dockerfile
 FROM node:latest
 
 WORKDIR /app
