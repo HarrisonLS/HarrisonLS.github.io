@@ -6,6 +6,8 @@ import Visitor from "./components/Visitor.vue";
 import Copyright from "./components/Copyright.vue";
 import MNavLinks from "./components/MNavLinks.vue";
 import XMindEmbedViewer from "./components/XmindViewer.vue";
+import HomeStarfield from "./components/HomeStarfield.vue";
+import HomeLiquid from "./components/HomeLiquid.vue";
 
 import "./styles/index.scss";
 import "./styles/var.scss";
@@ -31,6 +33,8 @@ export default {
        */
       "nav-bar-title-after": () => h(Visitor),
       "doc-after": () => h(Copyright),
+      /* 首页背景特效：星空 + 流体（组件内部按路由 "/" 自行控制渲染） */
+      "layout-bottom": () => [h(HomeStarfield), h(HomeLiquid)],
       // 'aside-bottom': () => h(AsideSponsors)
     });
   },
